@@ -1,0 +1,29 @@
+{
+  "apiVersion": "1",
+  "titel": "Organigramm",
+  "seitentitel": "Organigramm",
+  "icon": "logo_ondics.png",
+  "brandingCSS": "",
+  "beschreibung": ["Die App kann Organigramme Darstellen"],
+  "kontakt": [
+    "Tel.: <a href='tel:+49711310093100'>0711-31009-3100</a><br>",
+    "Fax: <a href='tel:+49711310093108'>0711-31009-3108</a><br>",
+    "E-Mail: <a href='mailto:info@ondics.de'>info@ondics.de</a>"
+  ],
+  "impressum": [
+    "Ondics GmbH<br>",
+    "Wolfgang Clauss<br>Blumenstrasse 19<br>",
+    "<a href='https://www.ondics.de/' target='_blank'>https://www.ondics.de/</a>"
+  ],
+  "datenschutz": "umfangreicher Text...",
+  "urlODP": "https://open-data-musterstadt.ckan.de",
+  "urlDaten": "https://open-data-musterstadt.ckan.de/dataset/organigramm",
+  "fusszeile": [
+    "(C) Copyright 2025 | ",
+    "für den Inhalt: Ondics GmbH | ",
+    "App-Entwickler: Ondics GmbH | ",
+    "Provided by: Ondics GmbH"
+  ],
+  "apiurl": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/f1b937ab-6a65-4929-9da6-25948a8eeadd/download/test.json",
+  "sprache": "de"
+}

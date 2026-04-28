@@ -1,0 +1,145 @@
+{
+  "organigramm": [
+    {
+      "name": "Stadt Musterstadt",
+      "ebene": [
+        {
+          "titel": "Dezernat 1 - Allgemeine Verwaltung",
+          "beschreibung": [
+            "Büro des Oberbürgermeisters, Organisation, Personal, Gemeinderat, Wirtschaft",
+            "Anschrift",
+            "Hausanschrift",
+            "Rathausplatz 1",
+            "12345 Musterstadt",
+            "Postfach",
+            "12345 Musterstadt",
+            "Postfach: 10 00 01"
+          ],
+          "kontakt": {
+            "telefon": "01234 567890",
+            "email": "dezernat.allgemeine-verwaltung@musterstadt.de",
+            "fax": "01234 567899"
+          },
+          "service-id": [
+            "lebensretter"
+          ],
+          "personen-id": [
+            "mueller",
+            "schmidt",
+            "meier"
+          ],
+          "stellen": [
+            {
+              "titel": "Amt für Rechts- und Grundstücksangelegenheiten",
+              "beschreibung": [
+                "Aufgaben",
+                "Rechtsberatung der Verwaltung",
+                "Führung von Rechtsstreitigkeiten",
+                "Bearbeitung von Schadensfällen und Entschädigungsansprüchen",
+                "Vergleichsbehörde (Sühneverfahren)",
+                "Eine rechtliche Beratung von Personen oder Einrichtungen außerhalb der Stadtverwaltung kann nicht erfolgen",
+                "Anschrift",
+                "Hausanschrift",
+                "Beispielstraße 10",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 02"
+              ],
+              "kontakt": {
+                "telefon": "01234 567891",
+                "email": "rechtsamt@musterstadt.de",
+                "fax": "01234 567892"
+              },
+              "service-id": [
+                "vorverkaufsrecht"
+              ],
+              "personen-id": [
+                "schneider",
+                "fischer"
+              ],
+              "stellen": [
+                {
+                  "titel": "Abteilung Liegenschaften",
+                  "beschreibung": [
+                    "Die Abteilung Liegenschaften ist Ansprechpartner in allen Fragen der Abwicklung von Grundstücksgeschäften",
+                    "Bestellung und Verwaltung von Erbbaurechten",
+                    "Verwaltung unbebauter Grundstücke",
+                    "Anschrift",
+                    "Hausanschrift",
+                    "Beispielstraße 10",
+                    "12345 Musterstadt"
+                  ],
+                  "kontakt": {
+                    "telefon": "01234 567893",
+                    "email": "liegenschaften@musterstadt.de",
+                    "fax": ""
+                  },
+                  "service-id": [
+                    "vorverkaufsrecht"
+                  ],
+                  "personen-id": [
+                    "schneider",
+                    "fischer"
+                  ],
+                  "stellen": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "lebensretter",
+      "titel": "Staatliche Ehrung von Lebensrettern anregen",
+      "beschreibung": "Personen, die einen Menschen aus Lebensgefahr gerettet haben, können staatlich geehrt werden.",
+      "url": "https://service.musterstadt.de/lebensretter"
+    },
+    {
+      "id": "vorverkaufsrecht",
+      "titel": "Vorkaufsrecht der Gemeinde - Negativzeugnis beantragen",
+      "beschreibung": "Bei Übertragungen von Grundstücken hat die Gemeinde in bestimmten Fällen ein Vorkaufsrecht.",
+      "url": "https://service.musterstadt.de/vorverkaufsrecht"
+    }
+  ],
+  "personen": [
+    {
+      "id": "mueller",
+      "name": "Max Müller",
+      "beschreibung": "Oberbürgermeister, Raum 101, Neues Rathaus",
+      "telefon": "01234 567890",
+      "email": "max.mueller@musterstadt.de"
+    },
+    {
+      "id": "schneider",
+      "name": "Anna Schneider",
+      "beschreibung": "Abteilungsleitung",
+      "telefon": "01234 567894",
+      "email": ""
+    },
+    {
+      "id": "fischer",
+      "name": "Peter Fischer",
+      "beschreibung": "Assistenz der Abteilungsleitung und für den Grundstücksverkehr",
+      "telefon": "01234 567893",
+      "email": ""
+    },
+    {
+      "id": "schmidt",
+      "name": "Laura Schmidt",
+      "beschreibung": "Persönliche Referentin des Oberbürgermeisters, Stellvertretende Amtsleitung, Stellvertretende Pressesprecherin, Raum 102, Neues Rathaus",
+      "telefon": "01234 567895",
+      "email": "laura.schmidt@musterstadt.de"
+    },
+    {
+      "id": "meier",
+      "name": "Julia Meier",
+      "beschreibung": "Sekretariat, Raum 103, Neues Rathaus",
+      "telefon": "01234 567896",
+      "email": "julia.meier@musterstadt.de"
+    }
+  ]
+}

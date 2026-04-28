@@ -1,0 +1,135 @@
+{
+  "organigramm": [
+    {
+      "name": "Stadt Esslingen",
+      "ebene": [
+        {
+          "titel": "Dezernat 1 - Allgemeine Verwaltung",
+          "beschreibung": [
+            "Büro des Oberbürgermeisters, Organisation, Personal, Gemeinderat, Wirtschaft",
+            "Anschrift",
+            "Hausanschrift",
+            "Rathausplatz 2",
+            "73728 Esslingen am Neckar",
+            "Postfach",
+            "73703 Esslingen am Neckar",
+            "Postfach: 10 03 55"
+          ],
+          "kontakt": {
+            "telefon": "0711 3512 2201",
+            "email": "dezernat.allgemeine-verwaltung@esslingen.de",
+            "fax": "0711/ 3512 - 552201"
+          },
+          "service-id": ["lebensretter"],
+          "personen-id": ["klopfer", "schlecht", "bauer"],
+
+          "stellen": [
+            {
+              "titel": "Amt für Rechts- und Grundstücksangelegenheiten",
+              "beschreibung": [
+                "Aufgaben",
+                "Rechtsberatung der Verwaltung",
+                "Führung von Rechtsstreitigkeiten",
+                "Bearbeitung von Schadensfällen und Entschädigungsansprüchen",
+                "Dritter (Haftpflichtversicherung)",
+                "Vergleichsbehörde (Sühneverfahren)",
+                "Eine rechtliche Beratung von Personen oder Einrichtungen",
+                "außerhalb der Stadtverwaltung kann nicht erfolgen",
+                "Anschrift",
+                "Hausanschrift",
+                "Abt-Fulrad-Straße 3-5",
+                "73728 Esslingen am Neckar",
+                "Postfach",
+                "73703 Esslingen am Neckar",
+                "Postfach: 10 03 55"
+              ],
+              "kontakt": {
+                "telefon": "0711 3512-2607",
+                "email": "rechtsamt@esslingen.de",
+                "fax": "0711 3512-552652"
+              },
+              "service-id": ["vorverkaufsrecht"],
+              "personen-id": ["burmeister", "wistuba"],
+
+              "stellen": [
+                {
+                  "titel": "Abteilung Liegenschaften",
+                  "beschreibung": [
+                    "Die Abteilung Liegenschaften ist Ihr Ansprechpartner in allen Fragen der",
+                    "Abwicklung von Grundstücksgeschäften",
+                    "Bestellung und Verwaltung von Erbbaurechten",
+                    "Verwaltung unbebauter Grundstücke",
+                    "Anschrift",
+                    "Hausanschrift",
+                    "Abt-Fulrad-Straße  3 - 5",
+                    "73728 Esslingen am Neckar"
+                  ],
+                  "kontakt": {
+                    "telefon": "+49 711 3512 2509",
+                    "email": "liegenschaftsamt@esslingen.de",
+                    "fax": ""
+                  },
+                  "service-id": ["vorverkaufsrecht"],
+                  "personen-id": ["burmeister", "wistuba"],
+
+                  "stellen": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "lebensretter",
+      "titel": "Staatliche Ehrung von Lebensrettern anregen",
+      "beschreibung": "Personen, die einen Menschen aus Lebensgefahr gerettet haben, können staatlich geehrt werden.",
+      "url": "..."
+    },
+    {
+      "id": "vorverkaufsrecht",
+      "titel": "Vorkaufsrecht der Gemeinde - Negativzeugnis beantragen",
+      "beschreibung": "Bei Übertragungen von Grundstücken hat die Gemeinde in bestimmten Fällen ein Vorkaufsrecht.",
+      "url": "https://apps.esslingen.de/buergerportal/Buergerportal?Liste=Leistungen#"
+    }
+  ],
+  "personen": [
+    {
+      "id": "klopfer",
+      "name": "Matthias Klopfer",
+      "beschreibung": "Oberbürgermeister Raum 108, Neues Rathaus",
+      "telefon": "0711 3512 2201",
+      "email": "matthias.klopfer@esslingen.de"
+    },
+    {
+      "id": "burmeister",
+      "name": "Gunther Burmeister",
+      "beschreibung": "Abteilungsleitung",
+      "telefon": "+49 711 3512 2288",
+      "email": ""
+    },
+    {
+      "id": "wistuba",
+      "name": "Sonja Wistuba",
+      "beschreibung": "Assistenz der Abteilungsleitung und für den Grundstücksverkehr",
+      "telefon": "+49 711 3512 2509",
+      "email": ""
+    },
+    {
+      "id": "schlecht",
+      "name": "Niclas Schlecht",
+      "beschreibung": "Persönlicher Referent des Oberbürgermeisters Stellvertretende Amtsleitung Büro des Oberbürgermeisters Stellvertretender Pressesprecher. Raum 110, Neues Rathaus",
+      "telefon": "0711 3512 2751",
+      "email": "niclas.schlecht@esslingen.de"
+    },
+    {
+      "id": "bauer",
+      "name": "Dina Bauer",
+      "beschreibung": "Sekretariat Raum 109, Neues Rathaus",
+      "telefon": "0711 3512 2201",
+      "email": "dina.bauer@esslingen.de"
+    }
+  ]
+}

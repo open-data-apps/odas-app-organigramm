@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Organigramm JSON Schema",
+  "description": "Schema für hierarchische Organisationsstrukturen im JSON-Format (angepasst an Esslingen-Daten)",
+  "type": "object",
+  "properties": {
+    "organigramm": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/organisationseinheit"
+      },
+      "minItems": 1
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "titel": { "type": "string" },
+          "beschreibung": { "type": "string" },
+          "url": { "type": "string" }
+        },
+        "required": ["id", "titel"],
+        "additionalProperties": true
+      }
+    },
+    "personen": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "beschreibung": { "type": "string" },
+          "telefon": { "type": "string" },
+          "email": { "type": "string" }
+        },
+        "required": ["id", "name"],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": ["organigramm"],
+  "additionalProperties": true,
+  "definitions": {
+    "organisationseinheit": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "titel": { "type": "string" },
+        "beschreibung": {
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        },
+        "ebene": {
+          "oneOf": [
+            { "type": "integer", "minimum": 0 },
+            {
+              "type": "array",
+              "items": { "$ref": "#/definitions/organisationseinheit" }
+            }
+          ]
+        },
+        "kontakt": {
+          "type": "object",
+          "properties": {
+            "telefon": { "type": "string" },
+            "email": { "type": "string" },
+            "fax": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "service-id": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "personen-id": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "stellen": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/organisationseinheit" }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
