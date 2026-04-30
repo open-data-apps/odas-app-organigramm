@@ -20,9 +20,15 @@
     "- Es gibt Services jeweils mit id, titel, beschreibung und url.",
     "- Es gibt Personen jeweils mit id, name, beschreibung, telefon und email."
   ],
-  "tags-funktion": ["Verwaltungsorganisation"],
-  "tags-dateityp": ["json"],
-  "tags-datenart": ["App-Spezifikation"],
+  "tags-funktion": [
+    "Verwaltungsorganisation"
+  ],
+  "tags-dateityp": [
+    "json"
+  ],
+  "tags-datenart": [
+    "App-Spezifikation"
+  ],
   "screenshots": [
     "/assets/Desktop_Screenshot.png",
     "/assets/Desktop_Screenshot_2.png"
@@ -147,7 +153,10 @@
       "format": {
         "typ": "markdown"
       },
-      "default": ["_multiline_", "Alle Daten sind geschützt."],
+      "default": [
+        "_multiline_",
+        "Alle Daten sind geschützt."
+      ],
       "erforderlich": "ja"
     },
     "urlDaten": {
@@ -186,10 +195,18 @@
       "hilfe": "Angabe der App-Sprache",
       "format": {
         "typ": "dropdown",
-        "optionen": ["de"],
+        "optionen": [
+          "de"
+        ],
         "default": "de"
       },
       "erforderlich": "ja"
     }
+  },
+  "daten": {
+    "beschreibung": "Die Organigramm-App verarbeitet konfigurierbare Open-Data-Ressourcen aus dem Open Data Portal (z.B. JSON- oder CSV-Endpunkte).",
+    "schema": "",
+    "beispiel": "",
+    "beispiel-url": ""
   }
 }
