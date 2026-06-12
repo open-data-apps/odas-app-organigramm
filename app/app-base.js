@@ -27,24 +27,56 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       console.log("Kein Custom Branding CSS in der Config gefunden.");
     }
-    loadPage("startseite");
+    // Router initialisieren
+    window.addEventListener("hashchange", handleRouting);
+
+    const initialPage = getPageFromHash();
+    if (window.location.hash !== `#${initialPage}`) {
+      window.location.hash = `#${initialPage}`;
+    } else {
+      handleRouting();
+    }
   } catch (err) {
     console.error("Fehler:", err);
+    const mainContent = document.getElementById("main-content");
+    if (mainContent) {
+      mainContent.innerHTML = `
+        <div class="alert alert-danger my-4" role="alert">
+          <h4 class="alert-heading">Fehler beim Laden der App</h4>
+          <p>Die Konfigurationsdatei der App konnte nicht geladen oder verarbeitet werden.</p>
+          <hr>
+          <p class="mb-0">Details: ${err.message}</p>
+        </div>
+      `;
+    }
   }
   setupBurgerMenu();
 });
 
 function getConfigUrl() {
-  const urlString = window.location.href;
-  const url = new URL(urlString);
-  let configUrl = `${urlString}config`;
-  /*
+  const url = new URL(window.location.href);
+  
+  // Clean query and hash
+  url.search = "";
+  url.hash = "";
+  
+  // Ensure the pathname refers to the directory and not a filename (e.g. index.html)
+  let pathname = url.pathname;
+  if (!pathname.endsWith("/")) {
+    const lastSlashIndex = pathname.lastIndexOf("/");
+    if (lastSlashIndex !== -1) {
+      pathname = pathname.substring(0, lastSlashIndex + 1);
+    }
+  }
+  
+  let configUrl = url.origin + pathname + "config";
+
+  /* Zum testen mit docker oder Live Server Kommentar entfernen 
   if (["127.0.0.1", "localhost"].includes(url.hostname)) {
     configUrl = "../odas-config/config.json";
   } else if (["10.0.0.142"].includes(url.hostname)) {
     configUrl = "/odas-config/config.json";
-  }
-  */
+  }*/
   return configUrl;
 }
 
@@ -91,7 +123,7 @@ function updatePageContent() {
     titel = "",
     seitentitel = "",
     icon = "logo.png",
-    fusszeile = "&copy; 2025 ODAS Karten App. Alle Rechte vorbehalten.",
+    fusszeile = "© 2026 ODAS App. Alle Rechte vorbehalten.",
   } = configData;
 
   const elementMappings = {
@@ -103,8 +135,11 @@ function updatePageContent() {
 
   Object.entries(elementMappings).forEach(([id, content]) => {
     const element = document.getElementById(id);
+    if (!element) return; // Existenz-Check
     if (id === "logo-icon") {
       element.src = content;
+    } else if (id === "footer-text") {
+      element.innerHTML = content;
     } else {
       element.textContent = content;
     }
@@ -143,22 +178,53 @@ function createPageContent(title, content = "Informationen nicht verfügbar.") {
 
 function setupBurgerMenu() {
   document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
+    const href = link.getAttribute("href");
     const pageName =
       link.getAttribute("data-page") ||
-      link.getAttribute("href").replace("#", "").trim();
+      (href ? href.replace("#", "").trim() : "");
     if (pageName) {
-      // Stelle sicher, dass pageName gültig ist
-      link.addEventListener("click", (event) => {
-        event.preventDefault(); // Verhindere das standardmäßige Link-Verhalten
-        loadPage(pageName); // Lade die entsprechende Seite
-
+      link.addEventListener("click", () => {
         const offcanvasNavbar = document.getElementById("offcanvasNavbar");
-        const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasNavbar);
-
-        if (offcanvas && offcanvasNavbar.classList.contains("show")) {
-          offcanvas.hide();
+        if (offcanvasNavbar && typeof bootstrap !== "undefined") {
+          const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasNavbar);
+          if (offcanvas && offcanvasNavbar.classList.contains("show")) {
+            offcanvas.hide();
+          }
         }
       });
     }
   });
+}
+
+function getPageFromHash() {
+  const hash = window.location.hash.replace("#", "").trim();
+  const validPages = ["startseite", "beschreibung", "kontakt", "datenschutz", "impressum"];
+  if (validPages.includes(hash)) {
+    return hash;
+  }
+  return "startseite";
+}
+
+function updateActiveNavLink(page) {
+  document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
+    const href = link.getAttribute("href");
+    const pageName =
+      link.getAttribute("data-page") ||
+      (href ? href.replace("#", "").trim() : "");
+    if (pageName === page) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+}
+
+function handleRouting() {
+  const page = getPageFromHash();
+  if (window.location.hash !== `#${page}`) {
+    window.location.hash = `#${page}`;
+    return;
+  }
+  loadPage(page);
+  updateActiveNavLink(page);
 }
