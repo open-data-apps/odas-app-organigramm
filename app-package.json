@@ -3,22 +3,35 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
-  "app-icon": "assets/app-icon.png",
+  "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Diese App visualisiert Unternehmens Strukturen. Hier erfährt man, wer für was zuständig ist. Transparent, verständlich und mit direkten Kontaktinfos.",
   "beschreibung": [
     "_multiline_",
-    "Diese Open Data App ist zum darstellen von Organigrammen.",
-    "Die App zeigt Info Daten zu den Organigrammen an.",
-    "Zudem gibt es einen Tab zu Personen Suche innerhalb des Organigramms.",
-    "Die Daten werden aus einem Open Data Portal bezogen. ",
-    "Die Daten werden aus einem JSON Dokument gelesen.",
-    "Das ist wie folgt aufgebaut:",
-    "- Es gibt Ebenen jeweils mit titel, beschreibung, kontakt, service-id, personen-id und stellen.",
-    "- Jede Ebene hat einen Namen.",
-    "- Es gibt Services jeweils mit id, titel, beschreibung und url.",
-    "- Es gibt Personen jeweils mit id, name, beschreibung, telefon und email."
+    "## Über diese App",
+    "Diese App zeigt die Organisationsstruktur der Verwaltung mit direkten Kontaktdaten. Sie visualisiert Hierarchien und Zuständigkeiten transparent und verständlich – von der Führungsebene bis zu den einzelnen Stellen.",
+    "",
+    "## Inhalte",
+    "- Organigramm-Bereiche mit hierarchischer Navigation",
+    "- Kontaktdaten mit Telefon, E-Mail und Fax",
+    "- Zugeordnete Services mit Beschreibungen und Links",
+    "- Zugeordnete Personen mit direkten Kontaktinformationen",
+    "- Personen-Suche über alle Einträge hinweg",
+    "",
+    "## Nutzung",
+    "Klicken Sie sich durch die Organigramm-Bereiche, um die Zuständigkeiten zu erkunden. Die Personen-Suche hilft Ihnen, gezielt Ansprechpartner:innen zu finden. In der Detailansicht jedes Eintrags finden Sie die Kontaktdaten und zugehörigen Services.",
+    "",
+    "## Für wen ist diese App?",
+    "Diese App zeigt die Organisationsstruktur der Verwaltung mit direkten Kontaktdaten. Sie richtet sich an Bürger:innen, die den zuständigen Ansprechpartner suchen.",
+    "",
+    "## Datenquelle",
+    "- **Open Data Portal:** <a href=\"{{odp.url}}\" target=\"_blank\">{{odp.name}}</a>",
+    "- **Datensatz:** <a href=\"{{appinstanz.urlDaten}}\" target=\"_blank\">Organigramm-Datensatz im Open Data Portal</a>",
+    "- **Ressource:** <a href=\"{{appinstanz.apiurl}}\" target=\"_blank\">Organigramm-JSON</a>",
+    "",
+    "## Open Data App Store",
+    "Der Open Data App Store wird betrieben von <a href=\"{{odas.betreiber.url}}\">{{odas.betreiber.name}}</a>."
   ],
   "tags-funktion": [
     "Verwaltungsorganisation"
@@ -201,6 +214,20 @@
         "default": "de"
       },
       "erforderlich": "ja"
+    },
+    "datenStand": {
+      "label": "Datenstand",
+      "hilfe": "Freitext-Datum, z.B. 'Stand: Januar 2025'. Leer = ausgeblendet.",
+      "format": { "typ": "string", "laenge": 60 },
+      "default": "",
+      "erforderlich": "nein"
+    },
+    "weiterfuehrendeLinks": {
+      "label": "Weiterführende Links",
+      "hilfe": "Verwandte Datensätze / Hintergrundquellen (Markdown/HTML). Leer = ausgeblendet.",
+      "format": { "typ": "markdown" },
+      "default": "",
+      "erforderlich": "nein"
     }
   },
   "daten": {

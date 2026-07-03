@@ -19,6 +19,28 @@
 - @enclosingHtmlDivElement - HTML Knoten des umschließenden Tags
 - @returns {string | NULL} - darzustellendes HTML oder NULL, wenn direkt in den Knoten geschrieben wird
 */
+function escapeHtml(str) {
+  const s = String(str ?? "");
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderWeitereInfos(configdata) {
+  const links = (configdata.weiterfuehrendeLinks || "").trim();
+  if (!links) return "";
+  return (
+    '<section class="og-weitere-infos mt-4">' +
+    '<h2 class="h5 mb-3">Weitere Informationen</h2>' +
+    '<div class="og-weitere-infos-content">' +
+    links +
+    "</div></section>"
+  );
+}
+
 function app(configdata = {}, enclosingHtmlDivElement) {
   // Container leeren und Ladeindikator anzeigen
   enclosingHtmlDivElement.innerHTML = "";
@@ -50,6 +72,14 @@ function app(configdata = {}, enclosingHtmlDivElement) {
       const globalData = data;
       // Ladeindikator entfernen
       enclosingHtmlDivElement.innerHTML = "";
+
+      const datenStandText = String(configdata.datenStand || "").trim();
+      if (datenStandText) {
+        const frischeDiv = document.createElement("div");
+        frischeDiv.className = "text-muted small text-end mb-2";
+        frischeDiv.textContent = "Stand: " + datenStandText;
+        enclosingHtmlDivElement.appendChild(frischeDiv);
+      }
 
       // Prüfen, ob Organigramm-Daten vorhanden sind (jetzt "organigramm")
       if (!globalData.organigramm || globalData.organigramm.length === 0) {
@@ -109,6 +139,13 @@ function app(configdata = {}, enclosingHtmlDivElement) {
 
       // Initial: Zeige die erste "ebene" des ersten Organigramm-Bereichs
       showEbene(globalData.organigramm[0].ebene);
+
+      const weitereInfosHTML = renderWeitereInfos(configdata);
+      if (weitereInfosHTML) {
+        const weitereDiv = document.createElement("div");
+        weitereDiv.innerHTML = weitereInfosHTML;
+        enclosingHtmlDivElement.appendChild(weitereDiv);
+      }
 
       // Funktion: Zeige eine Liste von Einträgen der aktuellen Ebene
       function showEbene(items) {

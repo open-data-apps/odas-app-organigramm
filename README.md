@@ -23,6 +23,8 @@ Die APP ist eine Single Page Application Webapp. Mit:
 - Inhaltsbereich
 - Anzeige der strukturierten Daten als Organigramm im Inhaltsbereich
 - Personen Suchfunktion innerhalb des Organigramms
+- Datenstand-Anzeige (konfigurierbar)
+- Weiterführende Links (konfigurierbar)
 - Fußzeile
 
 Die Konfiguration wird vom ODAS geladen.

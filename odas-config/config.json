@@ -4,7 +4,31 @@
   "seitentitel": "Organigramm",
   "icon": "logo_ondics.png",
   "brandingCSS": "",
-  "beschreibung": ["Die App kann Organigramme Darstellen"],
+  "beschreibung": [
+    "## Über diese App",
+    "Diese App zeigt die Organisationsstruktur der Verwaltung mit direkten Kontaktdaten. Sie visualisiert Hierarchien und Zuständigkeiten transparent und verständlich – von der Führungsebene bis zu den einzelnen Stellen.",
+    "",
+    "## Inhalte",
+    "- Organigramm-Bereiche mit hierarchischer Navigation",
+    "- Kontaktdaten mit Telefon, E-Mail und Fax",
+    "- Zugeordnete Services mit Beschreibungen und Links",
+    "- Zugeordnete Personen mit direkten Kontaktinformationen",
+    "- Personen-Suche über alle Einträge hinweg",
+    "",
+    "## Nutzung",
+    "Klicken Sie sich durch die Organigramm-Bereiche, um die Zuständigkeiten zu erkunden. Die Personen-Suche hilft Ihnen, gezielt Ansprechpartner:innen zu finden. In der Detailansicht jedes Eintrags finden Sie die Kontaktdaten und zugehörigen Services.",
+    "",
+    "## Für wen ist diese App?",
+    "Diese App zeigt die Organisationsstruktur der Verwaltung mit direkten Kontaktdaten. Sie richtet sich an Bürger:innen, die den zuständigen Ansprechpartner suchen.",
+    "",
+    "## Datenquelle",
+    "- **Open Data Portal:** <a href=\"https://open-data-musterstadt.ckan.de\" target=\"_blank\">Open Data Musterstadt</a>",
+    "- **Datensatz:** <a href=\"https://open-data-musterstadt.ckan.de/dataset/organigramm\" target=\"_blank\">Organigramm-Datensatz im Open Data Portal</a>",
+    "- **Ressource:** <a href=\"https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/f1b937ab-6a65-4929-9da6-25948a8eeadd/download/test.json\" target=\"_blank\">Organigramm-JSON</a>",
+    "",
+    "## Open Data App Store",
+    "Der Open Data App Store wird betrieben von Ondics GmbH."
+  ],
   "kontakt": [
     "Tel.: <a href='tel:+49711310093100'>0711-31009-3100</a><br>",
     "Fax: <a href='tel:+49711310093108'>0711-31009-3108</a><br>",
@@ -25,5 +49,7 @@
     "Provided by: Ondics GmbH"
   ],
   "apiurl": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/f1b937ab-6a65-4929-9da6-25948a8eeadd/download/test.json",
-  "sprache": "de"
+  "sprache": "de",
+  "datenStand": "",
+  "weiterfuehrendeLinks": ""
 }

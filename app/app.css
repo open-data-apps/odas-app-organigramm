@@ -81,3 +81,18 @@ body {
   width: 3rem;
   height: 3rem;
 }
+
+.og-weitere-infos {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  background: var(--bs-body-bg);
+  padding: 1rem;
+}
+
+.og-weitere-infos-content :last-child {
+  margin-bottom: 0;
+}
+
+.og-weitere-infos-content a {
+  overflow-wrap: anywhere;
+}
