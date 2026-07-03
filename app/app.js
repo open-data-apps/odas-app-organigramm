@@ -41,6 +41,24 @@ function renderWeitereInfos(configdata) {
   );
 }
 
+function renderMethodikbox(configdata) {
+  const methodik = String(configdata.datenquelleHinweis || "").trim();
+  if (!methodik) return "";
+  return (
+    '<section class="og-methodik mt-4">' +
+    '<h2 class="h5 mb-3">Methodik / Datenquelle</h2>' +
+    '<div class="og-methodik-content">' +
+    methodik +
+    "</div></section>"
+  );
+}
+
+function formatDatenStandLabel(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  return /^stand\s*:/i.test(text) ? text : "Stand: " + text;
+}
+
 function app(configdata = {}, enclosingHtmlDivElement) {
   // Container leeren und Ladeindikator anzeigen
   enclosingHtmlDivElement.innerHTML = "";
@@ -77,7 +95,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
       if (datenStandText) {
         const frischeDiv = document.createElement("div");
         frischeDiv.className = "text-muted small text-end mb-2";
-        frischeDiv.textContent = "Stand: " + datenStandText;
+        frischeDiv.textContent = formatDatenStandLabel(datenStandText);
         enclosingHtmlDivElement.appendChild(frischeDiv);
       }
 
@@ -139,6 +157,13 @@ function app(configdata = {}, enclosingHtmlDivElement) {
 
       // Initial: Zeige die erste "ebene" des ersten Organigramm-Bereichs
       showEbene(globalData.organigramm[0].ebene);
+
+      const methodikHTML = renderMethodikbox(configdata);
+      if (methodikHTML) {
+        const methodikDiv = document.createElement("div");
+        methodikDiv.innerHTML = methodikHTML;
+        enclosingHtmlDivElement.appendChild(methodikDiv);
+      }
 
       const weitereInfosHTML = renderWeitereInfos(configdata);
       if (weitereInfosHTML) {
