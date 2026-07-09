@@ -103,12 +103,17 @@ function flattenJson(jsonObj) {
       value.every((item) => typeof item === "string")
     ) {
       // ...verbinde die Strings zu einem einzigen String
-      result[key] = value.join("");
+      result[key] = normalizeMultilineValue(value);
     } else {
       result[key] = value;
     }
   }
   return result;
+}
+
+function normalizeMultilineValue(value) {
+  if (!Array.isArray(value)) return value;
+  return value.filter((item) => item !== "_multiline_").join("\n");
 }
 
 async function fetchConfig(url) {
@@ -173,7 +178,10 @@ async function loadPage(page) {
 }
 
 function createPageContent(title, content = "Informationen nicht verfügbar.") {
-  return `<div class="col" id="secondarySites"><h2>${title}</h2><p>${content}</p></div>`;
+  const pageContent = Array.isArray(content)
+    ? normalizeMultilineValue(content)
+    : content;
+  return `<div class="col" id="secondarySites"><h2>${title}</h2><div>${pageContent}</div></div>`;
 }
 
 function setupBurgerMenu() {
