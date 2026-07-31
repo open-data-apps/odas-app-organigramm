@@ -1,95 +1,57 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Organigramm JSON Schema",
-  "description": "Schema für hierarchische Organisationsstrukturen im JSON-Format (angepasst an Esslingen-Daten)",
-  "type": "object",
-  "properties": {
-    "organigramm": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/organisationseinheit"
-      },
-      "minItems": 1
+  "$schema": "https://frictionlessdata.io/schemas/table-schema.json",
+  "name": "odas-app-organigramm",
+  "title": "Organisationseinheiten des Organigramms",
+  "description": "Beschreibt eine Organisationseinheit aus dem Array 'organigramm' der Quelldatei. Die Struktur ist rekursiv: Untereinheiten stehen in 'stellen' bzw. 'ebene' und folgen demselben Feldsatz. Die Quelldatei enthaelt daneben die Begleitsammlungen 'services' (id, titel, beschreibung, url) und 'personen' (id, name, beschreibung, telefon, email), die ueber 'service-id' und 'personen-id' referenziert werden.",
+  "fields": [
+    {
+      "name": "name",
+      "title": "Name",
+      "type": "string",
+      "description": "Name der Organisationseinheit, zum Beispiel Amt, Abteilung oder Sachgebiet."
     },
-    "services": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "titel": { "type": "string" },
-          "beschreibung": { "type": "string" },
-          "url": { "type": "string" }
-        },
-        "required": ["id", "titel"],
-        "additionalProperties": true
-      }
+    {
+      "name": "titel",
+      "title": "Titel",
+      "type": "string",
+      "description": "Ausgeschriebene Bezeichnung der Organisationseinheit."
     },
-    "personen": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "beschreibung": { "type": "string" },
-          "telefon": { "type": "string" },
-          "email": { "type": "string" }
-        },
-        "required": ["id", "name"],
-        "additionalProperties": true
-      }
-    }
-  },
-  "required": ["organigramm"],
-  "additionalProperties": true,
-  "definitions": {
-    "organisationseinheit": {
+    {
+      "name": "beschreibung",
+      "title": "Beschreibung",
+      "type": "string",
+      "description": "Freitext zu Aufgaben und Zustaendigkeiten der Einheit."
+    },
+    {
+      "name": "ebene",
+      "title": "Ebene",
+      "type": "any",
+      "description": "Entweder die Hierarchiestufe als ganze Zahl ab 0 oder ein Array untergeordneter Organisationseinheiten mit demselben Feldsatz."
+    },
+    {
+      "name": "kontakt",
+      "title": "Kontakt",
       "type": "object",
-      "properties": {
-        "name": { "type": "string" },
-        "titel": { "type": "string" },
-        "beschreibung": {
-          "oneOf": [
-            { "type": "string" },
-            {
-              "type": "array",
-              "items": { "type": "string" }
-            }
-          ]
-        },
-        "ebene": {
-          "oneOf": [
-            { "type": "integer", "minimum": 0 },
-            {
-              "type": "array",
-              "items": { "$ref": "#/definitions/organisationseinheit" }
-            }
-          ]
-        },
-        "kontakt": {
-          "type": "object",
-          "properties": {
-            "telefon": { "type": "string" },
-            "email": { "type": "string" },
-            "fax": { "type": "string" }
-          },
-          "additionalProperties": true
-        },
-        "service-id": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "personen-id": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "stellen": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/organisationseinheit" }
-        }
-      },
-      "additionalProperties": true
+      "description": "Kontaktangaben der Einheit mit den Schluesseln telefon, email und fax."
+    },
+    {
+      "name": "service-id",
+      "title": "Service-Referenzen",
+      "type": "array",
+      "description": "Liste von IDs aus der Sammlung 'services' der Quelldatei."
+    },
+    {
+      "name": "personen-id",
+      "title": "Personen-Referenzen",
+      "type": "array",
+      "description": "Liste von IDs aus der Sammlung 'personen' der Quelldatei."
+    },
+    {
+      "name": "stellen",
+      "title": "Untergeordnete Stellen",
+      "type": "array",
+      "description": "Array untergeordneter Organisationseinheiten mit demselben Feldsatz."
     }
-  }
+  ],
+  "missingValues": [""]
 }

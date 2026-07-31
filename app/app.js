@@ -29,6 +29,17 @@ function escapeHtml(str) {
     .replace(/'/g, "&#39;");
 }
 
+// Laesst nur http- und https-URLs durch. Ohne diese Pruefung wuerde eine
+// javascript:-URL aus der Datenquelle beim Klick ausgefuehrt.
+function safeUrl(value = "") {
+  try {
+    const url = new URL(String(value), window.location.href);
+    return url.protocol === "http:" || url.protocol === "https:" ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
 function renderWeitereInfos(configdata) {
   const links = (configdata.weiterfuehrendeLinks || "").trim();
   if (!links) return "";
@@ -312,19 +323,19 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         tabPane0.id = tabId0;
         let beschreibungHTML = "";
         if (Array.isArray(item.beschreibung)) {
-          beschreibungHTML = item.beschreibung.join("<br>");
+          beschreibungHTML = item.beschreibung.map(escapeHtml).join("<br>");
         }
         let kontaktHTML = "";
         if (item.kontakt) {
           kontaktHTML =
             "<p><strong>Telefon:</strong> " +
-            (item.kontakt.telefon || "") +
+            escapeHtml(item.kontakt.telefon || "") +
             "<br>" +
             "<strong>Email:</strong> " +
-            (item.kontakt.email || "") +
+            escapeHtml(item.kontakt.email || "") +
             "<br>" +
             "<strong>Fax:</strong> " +
-            (item.kontakt.fax || "") +
+            escapeHtml(item.kontakt.fax || "") +
             "</p>";
         }
         tabPane0.innerHTML = beschreibungHTML + kontaktHTML;
@@ -349,14 +360,17 @@ function app(configdata = {}, enclosingHtmlDivElement) {
           item["service-id"].forEach((id) => {
             const service = globalData.services.find((s) => s.id === id);
             if (service) {
+              const serviceUrl = safeUrl(service.url);
               servicesHTML +=
                 "<p><strong>" +
-                service.titel +
+                escapeHtml(service.titel) +
                 "</strong><br>" +
-                service.beschreibung +
+                escapeHtml(service.beschreibung) +
                 "<br>" +
-                (service.url
-                  ? '<a href="' + service.url + '">Mehr Infos</a>'
+                (serviceUrl
+                  ? '<a href="' +
+                    escapeHtml(serviceUrl) +
+                    '" target="_blank" rel="noopener">Mehr Infos</a>'
                   : "") +
                 "</p>";
             }
@@ -386,15 +400,15 @@ function app(configdata = {}, enclosingHtmlDivElement) {
             if (person) {
               personenHTML +=
                 "<p><strong>" +
-                person.name +
+                escapeHtml(person.name) +
                 "</strong><br>" +
-                person.beschreibung +
+                escapeHtml(person.beschreibung) +
                 "<br>" +
                 "<strong>Telefon:</strong> " +
-                (person.telefon || "") +
+                escapeHtml(person.telefon || "") +
                 "<br>" +
                 "<strong>Email:</strong> " +
-                (person.email || "") +
+                escapeHtml(person.email || "") +
                 "</p>";
             }
           });
@@ -536,11 +550,11 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         cardBody.appendChild(header);
         const details = document.createElement("p");
         details.innerHTML =
-          (person.beschreibung || "") +
+          escapeHtml(person.beschreibung || "") +
           "<br><strong>Telefon:</strong> " +
-          (person.telefon || "") +
+          escapeHtml(person.telefon || "") +
           "<br><strong>Email:</strong> " +
-          (person.email || "");
+          escapeHtml(person.email || "");
         cardBody.appendChild(details);
         card.appendChild(cardBody);
         contentContainer.appendChild(card);
