@@ -30,7 +30,10 @@
     "Wolfgang Clauss<br>Blumenstrasse 19<br>",
     "<a href='https://www.ondics.de/' target='_blank'>https://www.ondics.de/</a>"
   ],
-  "datenschutz": "umfangreicher Text...",
+  "datenschutz": [
+    "umfangreicher Text...",
+    "<h3>Beim Aufruf kontaktierte Drittanbieter</h3><p>Beim Aufruf dieser App werden Bibliotheken bzw. Kartendienste von folgenden externen Servern geladen. Dabei werden IP-Adresse und User-Agent der Besucher:innen an diese Anbieter übertragen:</p><ul><li><strong>cdn.jsdelivr.net</strong> — Bootstrap (Layout- und UI-Framework)</li></ul>"
+  ],
   "urlODP": "https://open-data-musterstadt.ckan.de",
   "urlDaten": "https://open-data-musterstadt.ckan.de/dataset/organigramm",
   "fusszeile": [
