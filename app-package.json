@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Diese App visualisiert Unternehmens Strukturen. Hier erfährt man, wer für was zuständig ist. Transparent, verständlich und mit direkten Kontaktinfos.",
@@ -138,7 +138,7 @@
       "default": [
         "_multiline_",
         "Alle Daten sind geschützt.",
-        "<h3>Beim Aufruf kontaktierte Drittanbieter</h3><p>Beim Aufruf dieser App werden Bibliotheken bzw. Kartendienste von folgenden externen Servern geladen. Dabei werden IP-Adresse und User-Agent der Besucher:innen an diese Anbieter übertragen:</p><ul><li><strong>cdn.jsdelivr.net</strong> — Bootstrap (Layout- und UI-Framework)</li></ul>"
+        ""
       ],
       "erforderlich": "ja"
     },
