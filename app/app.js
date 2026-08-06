@@ -463,7 +463,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
 
         // Ergebnisse-Container
         const resultsContainer = document.createElement("div");
-        resultsContainer.id = "personen-result";
+        resultsContainer.id = "og-personen-result";
         resultsContainer.className = "mt-3";
         contentContainer.appendChild(resultsContainer);
 
@@ -484,7 +484,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
 
       // Filtert globalData.personen anhand des Suchbegriffs und zeigt Ergebnisse an
       function performPersonSearch(query) {
-        const resultsContainer = enclosingHtmlDivElement.querySelector("#personen-result");
+        const resultsContainer = enclosingHtmlDivElement.querySelector("#og-personen-result");
         resultsContainer.innerHTML = "";
         if (!query) {
           resultsContainer.innerHTML =

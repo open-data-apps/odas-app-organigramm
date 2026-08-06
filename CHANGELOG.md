@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.14.0 - 2026-08-06
+- FIX: ID personen-result mit App-Praefix versehen (F-25, Konsistenzregel)
+
 ## 1.13.0 - 2026-08-06
 - FIX: DOM-Zugriffe auf den App-Container gescopt (F-25)
 
