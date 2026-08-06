@@ -484,7 +484,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
 
       // Filtert globalData.personen anhand des Suchbegriffs und zeigt Ergebnisse an
       function performPersonSearch(query) {
-        const resultsContainer = document.getElementById("personen-result");
+        const resultsContainer = enclosingHtmlDivElement.querySelector("#personen-result");
         resultsContainer.innerHTML = "";
         if (!query) {
           resultsContainer.innerHTML =
