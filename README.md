@@ -86,6 +86,9 @@ leitet auf den internen Nginx-Port 80 weiter. Die Konfiguration wird aus derselb
 `odas-config/config.json` gelesen wie in der Entwicklung und von Nginx unter `/config`
 ausgeliefert.
 
+### Beim Aufruf kontaktierte Drittanbieter
+
+Beim Aufruf dieser App werden keine externen Server für Programmbibliotheken kontaktiert; alle Bibliotheken werden lokal aus `app/vendor/` ausgeliefert. Extern abgerufen wird ausschließlich die konfigurierte Datenquelle - direkt.
 ### Auslieferung an den ODAS
 
 `make zip` erzeugt das Liefer-ZIP mit `app/`, `assets/`, `app-package.json` und
