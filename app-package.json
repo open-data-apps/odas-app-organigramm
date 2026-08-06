@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Diese App visualisiert Unternehmens Strukturen. Hier erfährt man, wer für was zuständig ist. Transparent, verständlich und mit direkten Kontaktinfos.",
@@ -137,8 +137,9 @@
       },
       "default": [
         "_multiline_",
-        "Alle Daten sind geschützt.",
-        ""
+        "<p>Diese App verarbeitet die angezeigten offenen Daten ausschließlich im Browser. Es werden keine Cookies gesetzt, keine Nutzungsstatistiken erhoben und keine Daten im Browser gespeichert.</p>",
+        "<p>Alle für die Darstellung benötigten Programmbibliotheken werden mit der App ausgeliefert. Beim Aufruf werden dafür keine externen Server kontaktiert.</p>",
+        "<p>Die angezeigten Daten werden vom Browser direkt aus der konfigurierten Datenquelle geladen. Dabei werden technisch bedingt IP-Adresse und Browserkennung an deren Betreiber übermittelt. Maßgeblich ist der Schalter <code>proxyAktiv</code> der Instanz-Konfiguration.</p>"
       ],
       "erforderlich": "ja"
     },

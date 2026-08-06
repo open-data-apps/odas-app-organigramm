@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.12.0 - 2026-08-06
+- FIX: Datenschutzangabe beschreibt den tatsaechlichen Stand nach dem Vendoring (Welle G)
+
 ## 1.11.0 - 2026-08-06
 - FIX: Base auf Template oda-generic 1.6.0 vereinheitlicht (Hook renderPageOverride)
 
