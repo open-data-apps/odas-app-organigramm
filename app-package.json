@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Diese App visualisiert Unternehmens Strukturen. Hier erfährt man, wer für was zuständig ist. Transparent, verständlich und mit direkten Kontaktinfos.",
@@ -41,7 +41,7 @@
   "instanz-config": {
     "seitentitel": {
       "label": "Seitentitel",
-      "category": "general",
+      "category": "allgemein",
       "hilfe": "Der Seitentitel wird im Browser-Tab der App angezeigt",
       "default": "Organigramm ODA",
       "format": {
@@ -52,7 +52,7 @@
     },
     "titel": {
       "label": "Titel",
-      "category": "general",
+      "category": "allgemein",
       "hilfe": "Der Titel wird in der Titelzeile der App angezeigt",
       "default": "Organigramm",
       "format": {
@@ -63,7 +63,7 @@
     },
     "icon": {
       "label": "App-Icon",
-      "category": "general",
+      "category": "allgemein",
       "hilfe": "Das Icon wird links oben in der Titelzeile angezeigt",
       "default": "{{{odp.logo}}}",
       "format": {
@@ -75,7 +75,7 @@
     },
     "kontakt": {
       "label": "Kontakt",
-      "category": "contact-legal",
+      "category": "kontakt-rechtliches",
       "hilfe": "Der Text wird im Menüpunkt 'Kontakt' anzeigt",
       "format": {
         "typ": "markdown"
@@ -92,7 +92,7 @@
     },
     "beschreibung": {
       "label": "Beschreibung",
-      "category": "content",
+      "category": "beschreibung",
       "hilfe": "Der Text wird im Menüpunkt 'Über diese App' anzeigt",
       "format": {
         "typ": "markdown"
@@ -117,7 +117,7 @@
     },
     "impressum": {
       "label": "Impressum",
-      "category": "contact-legal",
+      "category": "kontakt-rechtliches",
       "hilfe": "Der Text wird im Menüpunkt 'Impressum' anzeigt",
       "format": {
         "typ": "markdown"
@@ -137,7 +137,7 @@
     },
     "datenschutz": {
       "label": "Datenschutz",
-      "category": "contact-legal",
+      "category": "kontakt-rechtliches",
       "hilfe": "Der Text wird im Menüpunkt 'Datenschutz' anzeigt",
       "format": {
         "typ": "markdown"
@@ -152,7 +152,7 @@
     },
     "urlDaten": {
       "label": "URL zum Datensatz im ODP",
-      "category": "datasource",
+      "category": "datenherkunft",
       "hilfe": "Der Datensatz im Open Data Portal mit den Daten der Organigramm App",
       "format": {
         "typ": "url"
@@ -163,7 +163,7 @@
     },
     "fusszeile": {
       "label": "Fußzeile",
-      "category": "contact-legal",
+      "category": "kontakt-rechtliches",
       "hilfe": "Wird auf der Website unten in der Fusszeile angezeigt.",
       "format": {
         "typ": "string",
@@ -174,7 +174,7 @@
     },
     "proxyAktiv": {
       "label": "ODAS-Proxy aktivieren",
-      "category": "datasource",
+      "category": "datenherkunft",
       "hilfe": "Mit ja werden Datenabrufe über den ODAS-Proxy gesendet. Der Proxy ist nur im ODAS-Live-System verfügbar; Entwicklung und Standalone verwenden nein.",
       "default": "nein",
       "format": {
@@ -188,7 +188,7 @@
     },
     "apiurl": {
       "label": "URL zu den Daten",
-      "category": "datasource",
+      "category": "datenherkunft",
       "hilfe": "Von dieser URL zum Datensatz werden die Ressoucen bezogen (JSON)",
       "format": {
         "typ": "url",
@@ -200,7 +200,7 @@
     },
     "sprache": {
       "label": "Sprache der App",
-      "category": "general",
+      "category": "allgemein",
       "hilfe": "Angabe der App-Sprache",
       "default": "de",
       "format": {
@@ -213,7 +213,7 @@
     },
     "datenStand": {
       "label": "Datenstand",
-      "category": "content",
+      "category": "beschreibung",
       "hilfe": "Freitext-Datum, z.B. 'Stand: Januar 2025'. Leer = ausgeblendet.",
       "format": {
         "typ": "string",
@@ -224,7 +224,7 @@
     },
     "weiterfuehrendeLinks": {
       "label": "Weiterführende Links",
-      "category": "content",
+      "category": "beschreibung",
       "hilfe": "Verwandte Datensätze / Hintergrundquellen (Markdown/HTML). Leer = ausgeblendet.",
       "format": {
         "typ": "markdown"
@@ -234,7 +234,7 @@
     },
     "datenquelleHinweis": {
       "label": "Methodik / Datenquelle-Hinweis",
-      "category": "content",
+      "category": "beschreibung",
       "hilfe": "Herkunft, Erhebungsmethode und Limitierungen (HTML/Markdown). Leer = ausgeblendet.",
       "format": {
         "typ": "markdown"
@@ -244,7 +244,7 @@
     },
     "brandingCSS": {
       "label": "Zusätzliches Branding-CSS",
-      "category": "advanced",
+      "category": "sonstiges",
       "hilfe": "Optionaler CSS-Code für die konkrete App-Instanz.",
       "default": "",
       "format": {
@@ -255,7 +255,7 @@
     },
     "brandingCSSFile": {
       "label": "Branding-CSS-Datei",
-      "category": "advanced",
+      "category": "sonstiges",
       "hilfe": "Optionale URL zu einer zusätzlichen CSS-Datei für die konkrete App-Instanz.",
       "default": "",
       "format": {
