@@ -1,5 +1,4 @@
 {
-  "apiVersion": "1",
   "proxyAktiv": "nein",
   "titel": "Organigramm",
   "seitentitel": "Organigramm",
@@ -35,7 +34,6 @@
     "<p>Alle für die Darstellung benötigten Programmbibliotheken werden mit der App ausgeliefert. Beim Aufruf werden dafür keine externen Server kontaktiert.</p>",
     "<p>Die angezeigten Daten werden vom Browser direkt aus der konfigurierten Datenquelle geladen. Dabei werden technisch bedingt IP-Adresse und Browserkennung an deren Betreiber übermittelt. Maßgeblich ist der Schalter <code>proxyAktiv</code> der Instanz-Konfiguration.</p>"
   ],
-  "urlODP": "https://open-data-musterstadt.ckan.de",
   "urlDaten": "https://open-data-musterstadt.ckan.de/dataset/organigramm",
   "fusszeile": [
     "(C) Copyright 2025 | ",
