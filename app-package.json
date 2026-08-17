@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Diese App visualisiert Unternehmens Strukturen. Hier erfährt man, wer für was zuständig ist. Transparent, verständlich und mit direkten Kontaktinfos.",
@@ -157,8 +157,8 @@
       "format": {
         "typ": "url"
       },
-      "default": "",
-      "beispiel": "",
+      "default": "{{appconfig.datensatz-url}}",
+      "beispiel": "https://open-data-musterstadt.ckan.de/dataset/organigramm",
       "erforderlich": "ja"
     },
     "fusszeile": {
@@ -189,7 +189,7 @@
     "apiurl": {
       "label": "URL zu den Daten",
       "category": "datenherkunft",
-      "hilfe": "Von dieser URL zum Datensatz werden die Ressoucen bezogen (JSON)",
+      "hilfe": "Direkter, maschinenlesbarer Endpunkt (JSON), von dem die App die Ressourcen lädt — nicht die Datensatzseite im ODP (siehe „URL zum Datensatz im ODP\").",
       "format": {
         "typ": "url",
         "laenge": 255

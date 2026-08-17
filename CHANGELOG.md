@@ -1,6 +1,10 @@
 # Changelog
 
 
+## 1.18.0 - 2026-08-17
+- `urlDaten.default` nutzte keinen Auto-Fill-Platzhalter, obwohl `apiurl.default` bereits `{{appconfig.datensatz-apiurl}}` verwendet; jetzt mit dem fehlenden Gegenstück `{{appconfig.datensatz-url}}` (Muster: `odas-app-parkflaechen`/`odas-app-poi`), `beispiel` auf die bereits verifizierte Datensatzseite gesetzt (F-68)
+- `apiurl.hilfe` verwendete das Wort „Datensatz" für das Feld, das explizit NICHT die Datensatzseite sein soll (plus Tippfehler „Ressoucen"); jetzt mit expliziter Abgrenzung zu `urlDaten` formuliert (F-68)
+
 ## 1.17.0 - 2026-08-17
 - `fetchOdasJson()` wirft jetzt bei nicht-JSON-Antworten (CSV, HTML, leerer Body) eine sprechende Konfigurationsfehlermeldung statt der rohen `JSON.parse`-Parserfehlermeldung (F-66)
 
