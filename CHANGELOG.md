@@ -1,6 +1,9 @@
 # Changelog
 
 
+## 1.19.0 - 2026-08-20
+- FIX: Tab-IDs verwendeten `Math.random()` statt eines modulglobalen Instanzzählers; jetzt konsistent mit dem Portfolio-Muster (Präfix + uid) (F-71)
+
 ## 1.18.0 - 2026-08-17
 - `urlDaten.default` nutzte keinen Auto-Fill-Platzhalter, obwohl `apiurl.default` bereits `{{appconfig.datensatz-apiurl}}` verwendet; jetzt mit dem fehlenden Gegenstück `{{appconfig.datensatz-url}}` (Muster: `odas-app-parkflaechen`/`odas-app-poi`), `beispiel` auf die bereits verifizierte Datensatzseite gesetzt (F-68)
 - `apiurl.hilfe` verwendete das Wort „Datensatz" für das Feld, das explizit NICHT die Datensatzseite sein soll (plus Tippfehler „Ressoucen"); jetzt mit expliziter Abgrenzung zu `urlDaten` formuliert (F-68)

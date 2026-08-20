@@ -19,6 +19,8 @@
 - @enclosingHtmlDivElement - HTML Knoten des umschließenden Tags
 - @returns {string | NULL} - darzustellendes HTML oder NULL, wenn direkt in den Knoten geschrieben wird
 */
+let ogInstanzZaehler = 0;
+
 function escapeHtml(str) {
   const s = String(str ?? "");
   return s
@@ -167,6 +169,7 @@ function describeNonJsonPayload(rawContent) {
 }
 
 function app(configdata = {}, enclosingHtmlDivElement) {
+  const ogUid = "i" + ++ogInstanzZaehler;
   const quelle = String(configdata.apiurl || "").trim();
   if (!quelle || /^\{\{.*\}\}$/.test(quelle) || /^<.*>$/.test(quelle)) {
     enclosingHtmlDivElement.innerHTML =
@@ -333,7 +336,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         tabContent.className = "tab-content";
 
         // Tab 1: Kontakt/Beschreibung
-        const tabId0 = "tab-" + Math.random().toString(36).substr(2, 9);
+        const tabId0 = "og-tab-" + ogUid + "-kontakt";
         const li0 = document.createElement("li");
         li0.className = "nav-item";
         const a0 = document.createElement("a");
@@ -367,7 +370,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         tabContent.appendChild(tabPane0);
 
         // Tab 2: Services
-        const tabId1 = "tab-" + Math.random().toString(36).substr(2, 9);
+        const tabId1 = "og-tab-" + ogUid + "-services";
         const li1 = document.createElement("li");
         li1.className = "nav-item";
         const a1 = document.createElement("a");
@@ -381,7 +384,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         tabPane1.className = "tab-pane fade";
         tabPane1.id = tabId1;
         let servicesHTML = "";
-        if (item["service-id"] && Array.isArray(item["service-id"])) {
+        if (item["service-id"] && Array.isArray(item["service-id"]) && Array.isArray(globalData.services)) {
           item["service-id"].forEach((id) => {
             const service = globalData.services.find((s) => s.id === id);
             if (service) {
@@ -401,11 +404,11 @@ function app(configdata = {}, enclosingHtmlDivElement) {
             }
           });
         }
-        tabPane1.innerHTML = servicesHTML;
+        tabPane1.innerHTML = servicesHTML || "<p class=\"text-muted\">Keine Service-Informationen vorhanden.</p>";
         tabContent.appendChild(tabPane1);
 
         // Tab 3: Personen
-        const tabId2 = "tab-" + Math.random().toString(36).substr(2, 9);
+        const tabId2 = "og-tab-" + ogUid + "-personen";
         const li2 = document.createElement("li");
         li2.className = "nav-item";
         const a2 = document.createElement("a");
@@ -419,7 +422,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         tabPane2.className = "tab-pane fade";
         tabPane2.id = tabId2;
         let personenHTML = "";
-        if (item["personen-id"] && Array.isArray(item["personen-id"])) {
+        if (item["personen-id"] && Array.isArray(item["personen-id"]) && Array.isArray(globalData.personen)) {
           item["personen-id"].forEach((id) => {
             const person = globalData.personen.find((p) => p.id === id);
             if (person) {
@@ -438,7 +441,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
             }
           });
         }
-        tabPane2.innerHTML = personenHTML;
+        tabPane2.innerHTML = personenHTML || "<p class=\"text-muted\">Keine Personendaten vorhanden.</p>";
         tabContent.appendChild(tabPane2);
 
         cardBody.appendChild(tabNav);
