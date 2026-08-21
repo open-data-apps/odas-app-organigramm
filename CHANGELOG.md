@@ -1,6 +1,9 @@
 # Changelog
 
 
+## 1.20.0 - 2026-08-20
+- Markdown-Metadaten: Paketbeschreibungen auf echtes Markdown umgestellt, exakte Identität Top-Level/Instanz hergestellt, lokale HTML-Fixture semantisch gespiegelt.
+
 ## 1.19.0 - 2026-08-20
 - FIX: Tab-IDs verwendeten `Math.random()` statt eines modulglobalen Instanzzählers; jetzt konsistent mit dem Portfolio-Muster (Präfix + uid) (F-71)
 
