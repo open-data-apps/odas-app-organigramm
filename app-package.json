@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
   "kurzbeschreibung": "Diese App visualisiert Unternehmens Strukturen. Hier erfährt man, wer für was zuständig ist. Transparent, verständlich und mit direkten Kontaktinfos.",
@@ -15,7 +15,7 @@
     "",
     "## Methodik",
     "",
-    "Die App lädt die in `apiurl` konfigurierte JSON-Ressource direkt im Browser – im Live-Betrieb optional über den ODAS-Proxy (`proxyAktiv`) – und erwartet ein Objekt mit den Feldern `organigramm`, `services` und `personen`.",
+    "Die App lädt die in `apiurls.organigramm` konfigurierte JSON-Ressource direkt im Browser – im Live-Betrieb optional über den ODAS-Proxy (`proxyAktiv`) – und erwartet ein Objekt mit den Feldern `organigramm`, `services` und `personen`.",
     "",
     "Für die Navigation werden die obersten Einträge aus `organigramm` als Tabs dargestellt; ein zusätzlicher Tab \"Personen-Suche\" öffnet die Suche. Aus dem gewählten Bereich rendert die App die Einheiten in `ebene`; untergeordnete Einheiten in `stellen` sind rekursiv navigierbar – per Klick öffnet sich die Detailansicht, von dort aus die nächste Ebene.",
     "",
@@ -27,7 +27,7 @@
     "",
     "## Datenquelle",
     "",
-    "Die Organisationsdaten werden aus der konfigurierten JSON-Ressource geladen; die konkrete Quelle wird über die App-Konfiguration (`apiurl` für die Ressource, `urlDaten` für die Datensatzseite) festgelegt.",
+    "Die Organisationsdaten werden aus der konfigurierten JSON-Ressource geladen; die konkrete Quelle wird über die App-Konfiguration (`apiurls.organigramm` für die Ressource, `urlDaten` für die Datensatzseite) festgelegt.",
     "",
     "- **Open Data Portal:** [Open Data Musterstadt](https://open-data-musterstadt.ckan.de)",
     "- **Datensatz:** [Organigramm](https://open-data-musterstadt.ckan.de/dataset/organigramm)",
@@ -126,7 +126,7 @@
         "",
         "## Methodik",
         "",
-        "Die App lädt die in `apiurl` konfigurierte JSON-Ressource direkt im Browser – im Live-Betrieb optional über den ODAS-Proxy (`proxyAktiv`) – und erwartet ein Objekt mit den Feldern `organigramm`, `services` und `personen`.",
+        "Die App lädt die in `apiurls.organigramm` konfigurierte JSON-Ressource direkt im Browser – im Live-Betrieb optional über den ODAS-Proxy (`proxyAktiv`) – und erwartet ein Objekt mit den Feldern `organigramm`, `services` und `personen`.",
         "",
         "Für die Navigation werden die obersten Einträge aus `organigramm` als Tabs dargestellt; ein zusätzlicher Tab \"Personen-Suche\" öffnet die Suche. Aus dem gewählten Bereich rendert die App die Einheiten in `ebene`; untergeordnete Einheiten in `stellen` sind rekursiv navigierbar – per Klick öffnet sich die Detailansicht, von dort aus die nächste Ebene.",
         "",
@@ -138,7 +138,7 @@
         "",
         "## Datenquelle",
         "",
-        "Die Organisationsdaten werden aus der konfigurierten JSON-Ressource geladen; die konkrete Quelle wird über die App-Konfiguration (`apiurl` für die Ressource, `urlDaten` für die Datensatzseite) festgelegt.",
+        "Die Organisationsdaten werden aus der konfigurierten JSON-Ressource geladen; die konkrete Quelle wird über die App-Konfiguration (`apiurls.organigramm` für die Ressource, `urlDaten` für die Datensatzseite) festgelegt.",
         "",
         "- **Open Data Portal:** [Open Data Musterstadt](https://open-data-musterstadt.ckan.de)",
         "- **Datensatz:** [Organigramm](https://open-data-musterstadt.ckan.de/dataset/organigramm)",
@@ -240,17 +240,24 @@
       },
       "erforderlich": "ja"
     },
-    "apiurl": {
-      "label": "URL zu den Daten",
+    "apiurls": {
+      "label": "URLs zu Datenressourcen",
       "category": "datenherkunft",
-      "hilfe": "Direkter, maschinenlesbarer Endpunkt (JSON), von dem die App die Ressourcen lädt — nicht die Datensatzseite im ODP (siehe „URL zum Datensatz im ODP\").",
+      "hilfe": "Direkter Download-, Datei- oder API-Endpunkt der tatsächlich verwendeten Datenquelle(n). Mehrere Einträge möglich.",
+      "typ": "array",
       "format": {
         "typ": "url",
-        "laenge": 255
+        "laenge": 500
       },
-      "default": "{{appconfig.datensatz-apiurl}}",
-      "beispiel": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/c39e428e-8666-4f86-84f9-08528fa0dfe8/download/organigramm_musterstadt.json",
-      "erforderlich": "ja"
+      "urls": [
+        {
+          "name": "organigramm",
+          "label": "URL zu den Daten",
+          "default": "{{appconfig.datensatz-apiurl}}",
+          "beispiel": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/c39e428e-8666-4f86-84f9-08528fa0dfe8/download/organigramm_musterstadt.json",
+          "erforderlich": "ja"
+        }
+      ]
     },
     "sprache": {
       "label": "Sprache der App",

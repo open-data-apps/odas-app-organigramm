@@ -8,13 +8,13 @@
     "<p>Die Organigramm-App visualisiert Organisationsstrukturen transparent und verständlich.</p>",
     "<p>Sie zeigt Bereiche, Zuständigkeiten und Kontaktdaten in einer strukturierten Ansicht und hilft, Ansprechstellen schneller zu finden.</p>",
     "<h2>Methodik</h2>",
-    "<p>Die App lädt die in <code>apiurl</code> konfigurierte JSON-Ressource direkt im Browser – im Live-Betrieb optional über den ODAS-Proxy (<code>proxyAktiv</code>) – und erwartet ein Objekt mit den Feldern <code>organigramm</code>, <code>services</code> und <code>personen</code>.</p>",
+    "<p>Die App lädt die in <code>apiurls.organigramm</code> konfigurierte JSON-Ressource direkt im Browser – im Live-Betrieb optional über den ODAS-Proxy (<code>proxyAktiv</code>) – und erwartet ein Objekt mit den Feldern <code>organigramm</code>, <code>services</code> und <code>personen</code>.</p>",
     "<p>Für die Navigation werden die obersten Einträge aus <code>organigramm</code> als Tabs dargestellt; ein zusätzlicher Tab \"Personen-Suche\" öffnet die Suche. Aus dem gewählten Bereich rendert die App die Einheiten in <code>ebene</code>; untergeordnete Einheiten in <code>stellen</code> sind rekursiv navigierbar – per Klick öffnet sich die Detailansicht, von dort aus die nächste Ebene.</p>",
     "<p>In der Detailansicht gliedert die App Kontakt/Beschreibung, Services und Personen in Tabs. Verknüpfungen über <code>service-id</code> und <code>personen-id</code> werden gegen die begleitenden Arrays <code>services</code> (mit <code>id</code>, <code>titel</code>, <code>beschreibung</code>, <code>url</code>) und <code>personen</code> (mit <code>id</code>, <code>name</code>, <code>beschreibung</code>, <code>telefon</code>, <code>email</code>) aufgelöst; Service-Links werden nur für <code>http</code>/<code>https</code>-URLs freigegeben.</p>",
     "<p>Die Personen-Suche filtert <code>personen</code> clientseitig nach Teiltreffern in <code>name</code> und <code>beschreibung</code> (case-insensitive) und zeigt Detailinformationen zur Auswahl an.</p>",
     "<p>Welche Felder, Ebenen und Verknüpfungen tatsächlich vorhanden sind und wie aktuell die Quelle gepflegt ist, hängt vom jeweiligen Datensatz ab; angezeigt werden die in der Quelle vorhandenen Einheiten, Services und Personen. Struktur und Links entsprechen dem gelieferten Datensatz.</p>",
     "<h2>Datenquelle</h2>",
-    "<p>Die Organisationsdaten werden aus der konfigurierten JSON-Ressource geladen; die konkrete Quelle wird über die App-Konfiguration (<code>apiurl</code> für die Ressource, <code>urlDaten</code> für die Datensatzseite) festgelegt.</p>",
+    "<p>Die Organisationsdaten werden aus der konfigurierten JSON-Ressource geladen; die konkrete Quelle wird über die App-Konfiguration (<code>apiurls.organigramm</code> für die Ressource, <code>urlDaten</code> für die Datensatzseite) festgelegt.</p>",
     "<ul><li><strong>Open Data Portal:</strong> <a href=\"https://open-data-musterstadt.ckan.de\" target=\"_blank\">Open Data Musterstadt</a></li><li><strong>Datensatz:</strong> <a href=\"https://open-data-musterstadt.ckan.de/dataset/organigramm\" target=\"_blank\">Organigramm</a></li><li><strong>Ressource/API-Endpunkt:</strong> <a href=\"https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/c39e428e-8666-4f86-84f9-08528fa0dfe8/download/organigramm_musterstadt.json\" target=\"_blank\">Organigramm JSON</a></li></ul>",
     "<p>Angezeigt werden die in der Quelle vorhandenen Einheiten, Services und Personen; Verfügbarkeit und Aktualität hängen vom Pflegestand der Quelle ab. Struktur und Links entsprechen dem gelieferten Datensatz.</p>",
     "<h2>Open Data App</h2>",
@@ -43,7 +43,13 @@
     "App-Entwickler: Ondics GmbH | ",
     "Provided by: Ondics GmbH"
   ],
-  "apiurl": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/f1b937ab-6a65-4929-9da6-25948a8eeadd/download/test.json",
+  "apiurls": [
+    {
+      "name": "organigramm",
+      "label": "URL zu den Daten",
+      "url": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/f1b937ab-6a65-4929-9da6-25948a8eeadd/download/test.json"
+    }
+  ],
   "sprache": "de",
   "datenStand": "Stand: abhängig von der konfigurierten Organigramm-Ressource",
   "weiterfuehrendeLinks": "<ul><li><a href=\"{{odp.url}}\" target=\"_blank\" rel=\"noopener\">{{odp.name}}</a></li><li><a href=\"{{appconfig.datensatz-apiurl}}\" target=\"_blank\" rel=\"noopener\">Konfigurierte Organigramm-Ressource</a></li><li><a href=\"https://open-data-app-store.de\" target=\"_blank\" rel=\"noopener\">Open Data App Store</a></li></ul>",

@@ -12,7 +12,9 @@
 -
 - configdata ist ein JSON, das die Referenz auf die Daten im CKAN Open Data Portal enthält:
 -     {
--         "apiUrl": "https://dein-open-data-portal.de/dataset/beispiel.json"
+-         "apiurls": [
+-             { "name": "organigramm", "label": "URL zu den Daten", "url": "https://dein-open-data-portal.de/dataset/beispiel.json" }
+-         ]
 -     }
 -
 - @param {Object} configdata - Alle Konfigurationsdaten der App
@@ -146,6 +148,17 @@ async function fetchOdasResource(targetUrl, configdata = {}) {
   }
 }
 
+/**
+ * Löst eine benannte Datenressource aus configdata.apiurls auf.
+ * Neue apiurls-Form (typ: "array"); das frühere skalare apiurl wird nicht mehr gelesen.
+ * @returns {string} getrimmte URL, oder "" für den Zustand "keine Quelle konfiguriert"
+ */
+function getOdasApiUrl(configdata, name) {
+  const liste = Array.isArray(configdata && configdata.apiurls) ? configdata.apiurls : [];
+  const treffer = liste.find((eintrag) => eintrag && eintrag.name === name);
+  return String((treffer && treffer.url) || "").trim();
+}
+
 async function fetchOdasJson(targetUrl, configdata = {}) {
   const rawContent = await fetchOdasResource(targetUrl, configdata);
   try {
@@ -170,7 +183,7 @@ function describeNonJsonPayload(rawContent) {
 
 function app(configdata = {}, enclosingHtmlDivElement) {
   const ogUid = "i" + ++ogInstanzZaehler;
-  const quelle = String(configdata.apiurl || "").trim();
+  const quelle = getOdasApiUrl(configdata, "organigramm");
   if (!quelle || /^\{\{.*\}\}$/.test(quelle) || /^<.*>$/.test(quelle)) {
     enclosingHtmlDivElement.innerHTML =
       '<div class="alert alert-info" role="alert">Es ist keine Datenquelle konfiguriert.</div>';
@@ -186,7 +199,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
   enclosingHtmlDivElement.appendChild(loader);
 
   // Daten laden: direkt oder ueber den ODAS-Proxy (proxyAktiv)
-  fetchOdasJson(configdata.apiurl, configdata)
+  fetchOdasJson(getOdasApiUrl(configdata, "organigramm"), configdata)
     .then((data) => {
       // Daten im globalen Scope speichern (für Services- und Personen-Lookup)
       const globalData = data;
