@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "app-version": "1.23.0",
+  "app-version": "1.24.0",
   "app-package-version": "2",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
@@ -31,7 +31,7 @@
     "Die Organisationsdaten werden aus der konfigurierten JSON-Ressource geladen; die konkrete Quelle wird über die App-Konfiguration (`apiurls.organigramm` für die Ressource, `urlDaten` für die Datensatzseite) festgelegt.",
     "",
     "- **Open Data Portal:** [Open Data Musterstadt](https://open-data-musterstadt.ckan.de)",
-    "- **Datensatz:** [Organigramm](https://open-data-musterstadt.ckan.de/dataset/organigramm)",
+    "- **Datensatz:** [Organigramm]({{{appinstanz.urlDaten}}})",
     "- **Ressource/API-Endpunkt:** [Organigramm JSON](https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/c39e428e-8666-4f86-84f9-08528fa0dfe8/download/organigramm_musterstadt.json)",
     "",
     "Angezeigt werden die in der Quelle vorhandenen Einheiten, Services und Personen; Verfügbarkeit und Aktualität hängen vom Pflegestand der Quelle ab. Struktur und Links entsprechen dem gelieferten Datensatz.",
@@ -142,7 +142,7 @@
         "Die Organisationsdaten werden aus der konfigurierten JSON-Ressource geladen; die konkrete Quelle wird über die App-Konfiguration (`apiurls.organigramm` für die Ressource, `urlDaten` für die Datensatzseite) festgelegt.",
         "",
         "- **Open Data Portal:** [Open Data Musterstadt](https://open-data-musterstadt.ckan.de)",
-        "- **Datensatz:** [Organigramm](https://open-data-musterstadt.ckan.de/dataset/organigramm)",
+        "- **Datensatz:** [Organigramm]({{{appinstanz.urlDaten}}})",
         "- **Ressource/API-Endpunkt:** [Organigramm JSON](https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/c39e428e-8666-4f86-84f9-08528fa0dfe8/download/organigramm_musterstadt.json)",
         "",
         "Angezeigt werden die in der Quelle vorhandenen Einheiten, Services und Personen; Verfügbarkeit und Aktualität hängen vom Pflegestand der Quelle ab. Struktur und Links entsprechen dem gelieferten Datensatz.",
@@ -291,7 +291,7 @@
       "format": {
         "typ": "markdown"
       },
-      "default": "- [Open Data Musterstadt](https://open-data-musterstadt.ckan.de/dataset/organigramm)\n- [Open Data App Store](https://open-data-app-store.de)",
+      "default": "- [Open Data Musterstadt]({{{appinstanz.urlDaten}}})\n- [Open Data App Store](https://open-data-app-store.de)",
       "erforderlich": "nein"
     },
     "datenquelleHinweis": {
