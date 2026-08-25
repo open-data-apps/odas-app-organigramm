@@ -212,7 +212,7 @@
       "format": {
         "typ": "url"
       },
-      "default": "{{appconfig.datensatz-url}}",
+      "default": "https://open-data-musterstadt.ckan.de/dataset/organigramm",
       "beispiel": "https://open-data-musterstadt.ckan.de/dataset/organigramm",
       "erforderlich": "ja"
     },
@@ -254,7 +254,7 @@
         {
           "name": "organigramm",
           "label": "URL zu den Daten",
-          "default": "{{appconfig.datensatz-apiurl}}",
+          "default": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/c39e428e-8666-4f86-84f9-08528fa0dfe8/download/organigramm_musterstadt.json",
           "beispiel": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/c39e428e-8666-4f86-84f9-08528fa0dfe8/download/organigramm_musterstadt.json",
           "erforderlich": "ja"
         }
