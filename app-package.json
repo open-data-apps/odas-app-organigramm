@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "app-version": "1.24.0",
+  "app-version": "1.24.1",
   "app-package-version": "2",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
@@ -330,7 +330,7 @@
   "daten": {
     "beschreibung": "Die Organigramm-App verarbeitet konfigurierbare Open-Data-Ressourcen aus dem Open Data Portal (z.B. JSON- oder CSV-Endpunkte).",
     "schema": "assets/schema.json",
-    "beispiel": "",
-    "beispiel-url": ""
+    "beispiel": "Organigramm-JSON mit organigramm[] (Ebenen mit titel, kontakt, stellen), services[] und personen[] — Schema beschreibt die Ebenen-Knoten.",
+    "beispiel-url": "https://open-data-musterstadt.ckan.de/dataset/1d7d124c-4b5b-40a3-b48a-84805ffb1e6d/resource/c39e428e-8666-4f86-84f9-08528fa0dfe8/download/organigramm_musterstadt.json"
   }
 }
