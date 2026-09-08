@@ -1,7 +1,9 @@
 # Changelog
 
-## 1.24.1 - 2026-09-07
+## 1.24.2 - 2026-09-08
 - **FIX:** Variante-A-Verdrahtung (F-92): Typprüfung (ckan-dl) vor dem ersten Fetch; Quellen- und Ladefehler über `renderOdasFehler` (1.24.1 -> 1.24.2).
+
+## 1.24.1 - 2026-09-07
 - **FIX:** Frictionless-Härtung: `daten.beispiel`/`beispiel-url` befüllt (Schema beschreibt belegt die Ebenen-Knoten). JSON-Pfad ist Validator-blind — Struktur-Match manuell verifiziert.
 
 ## 1.24.0 - 2026-08-25
