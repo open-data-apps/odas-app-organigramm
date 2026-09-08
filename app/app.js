@@ -344,8 +344,28 @@ function app(configdata = {}, enclosingHtmlDivElement) {
   const ogUid = "i" + ++ogInstanzZaehler;
   const quelle = getOdasApiUrl(configdata, "organigramm");
   if (!quelle || /^\{\{.*\}\}$/.test(quelle) || /^<.*>$/.test(quelle)) {
-    enclosingHtmlDivElement.innerHTML =
-      '<div class="alert alert-info" role="alert">Es ist keine Datenquelle konfiguriert.</div>';
+    renderOdasFehler(
+      enclosingHtmlDivElement,
+      new Error("Keine Datenquelle konfiguriert."),
+      {
+        url: quelle,
+        label: "Organigramm-API",
+        typLabel: "Datei-Download",
+        erwarteterTyp: "ckan-dl",
+      },
+    );
+    return;
+  }
+
+  // Variante A (F-92): Typprüfung vor dem ersten Fetch.
+  const ogTypWarn = validateUrlTypErwartung(quelle, "ckan-dl");
+  if (ogTypWarn) {
+    renderOdasFehler(enclosingHtmlDivElement, new Error(ogTypWarn), {
+      url: quelle,
+      label: "Organigramm-API",
+      typLabel: "Datei-Download",
+      erwarteterTyp: "ckan-dl",
+    });
     return;
   }
 
@@ -762,10 +782,12 @@ function app(configdata = {}, enclosingHtmlDivElement) {
     })
     .catch((error) => {
       console.error("Fehler beim Laden der Daten:", error);
-      enclosingHtmlDivElement.innerHTML =
-        '<div class="alert alert-danger"><strong>Fehler beim Laden:</strong> ' +
-        escapeHtml(error.message) +
-        "</div>";
+      renderOdasFehler(enclosingHtmlDivElement, error, {
+        url: quelle,
+        label: "Organigramm-API",
+        typLabel: "Datei-Download",
+        erwarteterTyp: "ckan-dl",
+      });
     });
 
   // Da direkt in den Knoten geschrieben wird, Rückgabewert NULL
