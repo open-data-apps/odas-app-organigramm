@@ -22,7 +22,7 @@ Die APP ist eine Single Page Application Webapp. Mit:
 - Seiten für Impressum, Datenschutz, Beschreibung, Kontakt, Hauptinhalt
 - Inhaltsbereich
 - Anzeige der strukturierten Daten als Organigramm im Inhaltsbereich
-- Personen Suchfunktion innerhalb des Organigramms
+- Personen-Suche innerhalb des Organigramms (Trefferzahl, Barrierefrei-Beschriftung, Suchbegriff bleibt beim Zurückkehren erhalten)
 - Datenstand-Anzeige (konfigurierbar)
 - Weiterführende Links (konfigurierbar)
 - Fußzeile

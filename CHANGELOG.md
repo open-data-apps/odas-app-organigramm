@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.24.3 - 2026-09-10
+- **FIX (OG-B1):** Kein Lifecycle-Schutz: Eine späte `.then`-Fortsetzung leerte `#main-content` und baute das Organigramm in die **inzwischen sichtbare nächste Seite**. Jetzt Instanz-Registry, `onPageLeave` und `disposed`-Prüfungen vor jedem DOM-Schreiber (auch im Fehlerpfad).
+- **FIX (OG-B2):** Datenabruf ohne Timeout und ohne Abbruch — bei hängendem Portal drehte der Spinner unbegrenzt, und nach einem Seitenwechsel lief der Abruf weiter. Jetzt 30-s-Timeout mit eigener Meldung plus `AbortController` im Teardown; `fetchOdasResource`/`fetchOdasJson` reichen `signal` durch.
+- **FIX (OG-B3):** Personen-Suche: Leer-/Fehlerzustände als `alert-info`, Trefferzahl vor der Liste, `aria-label` am Suchfeld, und der Suchbegriff bleibt beim Zurückkehren aus der Detailansicht erhalten. Der nie gelesene Zustand `_siblingList` in den Quelldaten ist entfernt.
+- **TECH (OG-B4):** `isLeerErgebnis` entfernt; `addToHead` gibt `""` statt `undefined` zurück.
+
 ## 1.24.2 - 2026-09-08
 - **FIX:** Variante-A-Verdrahtung (F-92): Typprüfung (ckan-dl) vor dem ersten Fetch; Quellen- und Ladefehler über `renderOdasFehler` (1.24.1 -> 1.24.2).
 

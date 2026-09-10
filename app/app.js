@@ -23,6 +23,27 @@
 */
 let ogInstanzZaehler = 0;
 
+// OG-B1: Instanz-Registry je Container. Die App hatte keinen Lifecycle-Schutz:
+// eine spaete .then-Fortsetzung leerte `#main-content` und baute das Organigramm
+// in die inzwischen sichtbare naechste Seite.
+const ogInstanzen = new Map();
+
+function onPageLeave() {
+  ogInstanzen.forEach(function (zustand) {
+    try {
+      zustand.abmelden();
+    } catch (error) {
+      console.warn("Fehler beim Abraeumen der Organigramm-Instanz:", error);
+    }
+  });
+  ogInstanzen.clear();
+}
+
+function ogVerworfen(root) {
+  const zustand = (root && ogInstanzen.get(root)) || null;
+  return !zustand || zustand.disposed;
+}
+
 function escapeHtml(str) {
   const s = String(str ?? "");
   return s
@@ -141,18 +162,21 @@ async function fetchViaOdasProxy(targetUrl, options = {}) {
   return proxyData.content;
 }
 
-async function fetchOdasResource(targetUrl, configdata = {}) {
+async function fetchOdasResource(targetUrl, configdata = {}, options = {}) {
   if (isOdasProxyEnabled(configdata)) {
-    return fetchViaOdasProxy(targetUrl);
+    return fetchViaOdasProxy(targetUrl, options);
   }
 
   try {
-    const response = await fetch(targetUrl);
+    const response = await fetch(targetUrl, {
+      signal: options && options.signal ? options.signal : undefined,
+    });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
     return response.text();
   } catch (error) {
+    if (error && error.name === "AbortError") throw error;
     throw new Error(
       `Direkter Datenabruf fehlgeschlagen (${error.message}). Bitte prüfen Sie die Daten-URL und die CORS-Freigabe der Datenquelle.`,
     );
@@ -170,8 +194,8 @@ function getOdasApiUrl(configdata, name) {
   return String((treffer && treffer.url) || "").trim();
 }
 
-async function fetchOdasJson(targetUrl, configdata = {}) {
-  const rawContent = await fetchOdasResource(targetUrl, configdata);
+async function fetchOdasJson(targetUrl, configdata = {}, options = {}) {
+  const rawContent = await fetchOdasResource(targetUrl, configdata, options);
   try {
     return JSON.parse(rawContent);
   } catch (_error) {
@@ -330,15 +354,6 @@ function renderOdasFehler(container, error, kontext = {}) {
   container.innerHTML = `<div class="alert ${alertClass}" role="alert"><strong>${escapeHtml(titel)}</strong><p class="mb-1">${escapeHtml(info.hinweis)}</p>${urlZeile}<details class="small"><summary>Details</summary><code>${escapeHtml(info.detail || String(error))}</code></details></div>`;
 }
 
-function isLeerErgebnis(json) {
-  if (!json) return true;
-  if (Array.isArray(json) && json.length === 0) return true;
-  if (Array.isArray(json.records) && json.records.length === 0) return true;
-  if (Array.isArray(json.results) && json.results.length === 0) return true;
-  if (json.result && Array.isArray(json.result.records) && json.result.records.length === 0) return true;
-  return false;
-}
-
 
 function app(configdata = {}, enclosingHtmlDivElement) {
   const ogUid = "i" + ++ogInstanzZaehler;
@@ -377,10 +392,46 @@ function app(configdata = {}, enclosingHtmlDivElement) {
   loader.innerHTML = '<span class="visually-hidden">Lade Daten...</span>';
   enclosingHtmlDivElement.appendChild(loader);
 
+  // OG-B1: Zustand und Teardown SOFORT registrieren — vor dem Abruf.
+  const zustand = {
+    disposed: false,
+    controller: new AbortController(),
+    timeoutId: null,
+    abmelden: function () {
+      this.disposed = true;
+      this.controller.abort();
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+        this.timeoutId = null;
+      }
+    },
+  };
+  const ogVorheriger = ogInstanzen.get(enclosingHtmlDivElement);
+  if (ogVorheriger) {
+    try {
+      ogVorheriger.abmelden();
+    } catch (_e) {}
+  }
+  ogInstanzen.set(enclosingHtmlDivElement, zustand);
+
+  // OG-B2: Ohne Timeout drehte der Spinner bei haengendem Portal unbegrenzt.
+  const OG_REQUEST_TIMEOUT_MS = 30000;
+  zustand.timeoutId = setTimeout(() => {
+    zustand.controller.abort();
+  }, OG_REQUEST_TIMEOUT_MS);
+
   // Daten laden: direkt oder ueber den ODAS-Proxy (proxyAktiv)
-  fetchOdasJson(getOdasApiUrl(configdata, "organigramm"), configdata)
+  fetchOdasJson(getOdasApiUrl(configdata, "organigramm"), configdata, {
+    signal: zustand.controller.signal,
+  })
     .then((data) => {
-      // Daten im globalen Scope speichern (für Services- und Personen-Lookup)
+      if (zustand.timeoutId) {
+        clearTimeout(zustand.timeoutId);
+        zustand.timeoutId = null;
+      }
+      // OG-B1: Nach einem Seitenwechsel nichts mehr in den fremden Container schreiben.
+      if (ogVerworfen(enclosingHtmlDivElement)) return;
+      // Daten im lokalen Scope speichern (für Services- und Personen-Lookup)
       const globalData = data;
       // Ladeindikator entfernen
       enclosingHtmlDivElement.innerHTML = "";
@@ -492,7 +543,6 @@ function app(configdata = {}, enclosingHtmlDivElement) {
           listItem.textContent = item.titel || "";
           listItem.addEventListener("click", () => {
             item._parent = parent;
-            item._siblingList = items;
             displayDetail(item);
           });
           listGroup.appendChild(listItem);
@@ -655,7 +705,6 @@ function app(configdata = {}, enclosingHtmlDivElement) {
             childButton.textContent = stelle.titel || "";
             childButton.addEventListener("click", () => {
               stelle._parent = item;
-              stelle._siblingList = item.stellen;
               displayDetail(stelle);
             });
             childrenContainer.appendChild(childButton);
@@ -665,6 +714,9 @@ function app(configdata = {}, enclosingHtmlDivElement) {
       }
 
       // Neue Funktion: Suche in globalData.personen und Anzeige der Ergebnisse
+      // OG-B3: Ein zuvor eingegebener Suchbegriff wird beim Zurückkehren aus der
+      // Detailansicht wieder eingesetzt und erneut gesucht.
+      let letzterSuchbegriff = "";
       function searchPersonen() {
         contentContainer.innerHTML = "";
         // Suchformular
@@ -674,6 +726,9 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         input.type = "text";
         input.className = "form-control";
         input.placeholder = "Nach Personen suchen...";
+        // OG-B3: Suchfeld war nur über den Platzhalter benannt.
+        input.setAttribute("aria-label", "Personensuche: Name oder Beschreibung");
+        input.value = letzterSuchbegriff;
         searchDiv.appendChild(input);
         const searchButton = document.createElement("button");
         searchButton.className = "btn btn-primary mt-2";
@@ -690,6 +745,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         // Event: Suche ausführen
         searchButton.addEventListener("click", function () {
           const query = input.value.trim().toLowerCase();
+          letzterSuchbegriff = input.value.trim();
           performPersonSearch(query);
         });
 
@@ -708,12 +764,13 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         resultsContainer.innerHTML = "";
         if (!query) {
           resultsContainer.innerHTML =
-            "<p>Bitte geben Sie einen Suchbegriff ein.</p>";
+            '<div class="alert alert-info" role="alert">Bitte geben Sie einen Suchbegriff ein.</div>';
           return;
         }
         // Prüfe, ob Personen vorhanden sind
         if (!globalData.personen || !Array.isArray(globalData.personen)) {
-          resultsContainer.innerHTML = "<p>Keine Personendaten vorhanden.</p>";
+          resultsContainer.innerHTML =
+            '<div class="alert alert-info" role="alert">Keine Personendaten vorhanden.</div>';
           return;
         }
         const matches = globalData.personen.filter(
@@ -722,9 +779,14 @@ function app(configdata = {}, enclosingHtmlDivElement) {
             (p.beschreibung && p.beschreibung.toLowerCase().includes(query))
         );
         if (matches.length === 0) {
-          resultsContainer.innerHTML = "<p>Keine Treffer gefunden.</p>";
+          resultsContainer.innerHTML =
+            '<div class="alert alert-info" role="alert">Keine Treffer gefunden.</div>';
           return;
         }
+        resultsContainer.innerHTML =
+          '<p class="text-muted small mb-2">' +
+          matches.length +
+          " Treffer:</p>";
         const listGroup = document.createElement("div");
         listGroup.className = "list-group";
         matches.forEach((person) => {
@@ -781,6 +843,27 @@ function app(configdata = {}, enclosingHtmlDivElement) {
       }
     })
     .catch((error) => {
+      if (zustand.timeoutId) {
+        clearTimeout(zustand.timeoutId);
+        zustand.timeoutId = null;
+      }
+      if (ogVerworfen(enclosingHtmlDivElement)) return;
+      if (error && error.name === "AbortError") {
+        // Timeout (der Seitenwechsel-Fall ist oben bereits abgefangen).
+        renderOdasFehler(
+          enclosingHtmlDivElement,
+          new Error(
+            "Zeitüberschreitung: Die Datenquelle hat nicht innerhalb von 30 Sekunden geantwortet.",
+          ),
+          {
+            url: quelle,
+            label: "Organigramm-API",
+            typLabel: "Datei-Download",
+            erwarteterTyp: "ckan-dl",
+          },
+        );
+        return;
+      }
       console.error("Fehler beim Laden der Daten:", error);
       renderOdasFehler(enclosingHtmlDivElement, error, {
         url: quelle,
@@ -798,4 +881,6 @@ function app(configdata = {}, enclosingHtmlDivElement) {
 - Diese Funktion kann Bibliotheken und benötigte Skripte laden.
 - Sie hängt die Skripte und Stylesheets in die Head Section an.
 */
-function addToHead() {}
+function addToHead() {
+  return ``;
+}
