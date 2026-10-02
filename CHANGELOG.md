@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.24.4 - 2026-10-02
+- ENH: Verwendete ODAS-Dienste in `odas-services` deklariert.
+
 ## 1.24.3 - 2026-09-10
 - **FIX (OG-B1):** Kein Lifecycle-Schutz: Eine späte `.then`-Fortsetzung leerte `#main-content` und baute das Organigramm in die **inzwischen sichtbare nächste Seite**. Jetzt Instanz-Registry, `onPageLeave` und `disposed`-Prüfungen vor jedem DOM-Schreiber (auch im Fehlerpfad).
 - **FIX (OG-B2):** Datenabruf ohne Timeout und ohne Abbruch — bei hängendem Portal drehte der Spinner unbegrenzt, und nach einem Seitenwechsel lief der Abruf weiter. Jetzt 30-s-Timeout mit eigener Meldung plus `AbortController` im Teardown; `fetchOdasResource`/`fetchOdasJson` reichen `signal` durch.
