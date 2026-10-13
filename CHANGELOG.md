@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.24.6 - 2026-10-13
+- FIX: F-161: Detail-Tabs werden vor dem Ersetzen der Ansicht und beim Seitenwechsel entsorgt; entfernte Oberflächen bleiben nicht im Speicher.
+
 ## 1.24.5 - 2026-10-08
 - FIX: F-112: Unbekannte Antwortstrukturen als Formatfehler statt als leere Daten anzeigen; bekannte leere Listen bleiben gültig.
 - FIX: F-132: Schema-konforme Beschreibungstexte zusätzlich zu Absatzarrays HTML-escaped darstellen.

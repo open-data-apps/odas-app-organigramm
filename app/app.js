@@ -39,6 +39,16 @@ function onPageLeave() {
   ogInstanzen.clear();
 }
 
+// F-161: Von Bootstrap registrierte Tab-Instanzen halten entfernte Detailansichten fest;
+// vor dem Ersetzen bzw. beim Seitenwechsel über die öffentliche API entsorgen.
+function ogTabsEntsorgen(scope) {
+  if (!scope || !window.bootstrap || !window.bootstrap.Tab) return;
+  scope.querySelectorAll('[data-bs-toggle="tab"]').forEach(function (element) {
+    const tab = window.bootstrap.Tab.getInstance(element);
+    if (tab) tab.dispose();
+  });
+}
+
 function ogVerworfen(root) {
   const zustand = (root && ogInstanzen.get(root)) || null;
   return !zustand || zustand.disposed;
@@ -399,6 +409,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
     timeoutId: null,
     abmelden: function () {
       this.disposed = true;
+      ogTabsEntsorgen(enclosingHtmlDivElement);
       this.controller.abort();
       if (this.timeoutId) {
         clearTimeout(this.timeoutId);
@@ -529,6 +540,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
       // Zeigt eine Liste von Einträgen (als Buttons) für die aktuelle Hierarchieebene.
       // parent ist null für die oberste Ebene.
       function displayList(items, parent) {
+        ogTabsEntsorgen(contentContainer);
         contentContainer.innerHTML = "";
         if (parent) {
           const backButton = document.createElement("button");
@@ -556,6 +568,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
 
       // Zeigt die Detailansicht eines Eintrags (Organigramm-Eintrag), inkl. fest definierter Tabs.
       function displayDetail(item) {
+        ogTabsEntsorgen(contentContainer);
         contentContainer.innerHTML = "";
         if (item._parent) {
           const backButton = document.createElement("button");
@@ -725,6 +738,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
       // Detailansicht wieder eingesetzt und erneut gesucht.
       let letzterSuchbegriff = "";
       function searchPersonen() {
+        ogTabsEntsorgen(contentContainer);
         contentContainer.innerHTML = "";
         // Suchformular
         const searchDiv = document.createElement("div");
@@ -811,6 +825,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
 
       // Zeigt eine Detailansicht einer Person aus globalData.personen
       function displayPersonDetail(person) {
+        ogTabsEntsorgen(contentContainer);
         contentContainer.innerHTML = "";
         const backButton = document.createElement("button");
         backButton.className = "btn btn-secondary mb-3";
