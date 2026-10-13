@@ -433,6 +433,10 @@ function app(configdata = {}, enclosingHtmlDivElement) {
       if (ogVerworfen(enclosingHtmlDivElement)) return;
       // Daten im lokalen Scope speichern (für Services- und Personen-Lookup)
       const globalData = data;
+      // F-112: Ein unbekanntes Objekt ist kein leerer Organigramm-Bestand.
+      if (!globalData || !Array.isArray(globalData.organigramm)) {
+        throw new Error("Unbekanntes Antwortformat: organigramm-Liste erwartet.");
+      }
       // Ladeindikator entfernen
       enclosingHtmlDivElement.innerHTML = "";
 
@@ -445,7 +449,7 @@ function app(configdata = {}, enclosingHtmlDivElement) {
       }
 
       // Prüfen, ob Organigramm-Daten vorhanden sind (jetzt "organigramm")
-      if (!globalData.organigramm || globalData.organigramm.length === 0) {
+      if (globalData.organigramm.length === 0) {
         enclosingHtmlDivElement.innerHTML = "<p>Keine Daten gefunden.</p>";
         return;
       }
@@ -594,6 +598,9 @@ function app(configdata = {}, enclosingHtmlDivElement) {
         let beschreibungHTML = "";
         if (Array.isArray(item.beschreibung)) {
           beschreibungHTML = item.beschreibung.map(escapeHtml).join("<br>");
+        } else if (typeof item.beschreibung === "string") {
+          // F-132: Auch der im Schema dokumentierte Text wird sicher dargestellt.
+          beschreibungHTML = escapeHtml(item.beschreibung);
         }
         let kontaktHTML = "";
         if (item.kontakt) {

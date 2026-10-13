@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.24.5 - 2026-10-08
+- FIX: F-112: Unbekannte Antwortstrukturen als Formatfehler statt als leere Daten anzeigen; bekannte leere Listen bleiben gültig.
+- FIX: F-132: Schema-konforme Beschreibungstexte zusätzlich zu Absatzarrays HTML-escaped darstellen.
+
 ## 1.24.4 - 2026-10-02
 - ENH: Verwendete ODAS-Dienste in `odas-services` deklariert.
 
