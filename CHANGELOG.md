@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.24.10 - 2026-10-15
+- FIX: Kopfzeile bei 360 px ohne Überlauf (Template): Logo- und Burger-Spalte passen sich der Breite an, das Menü-Symbol ragt nicht mehr über den rechten Rand. Keine Änderung an App-Code oder Konfiguration.
+
 ## 1.24.9 - 2026-10-15
 - FIX: Beispieldatensatz `assets/organigramm_musterstadt.json` ausgebaut: 4 Dezernate, 10 Ämter und Stellen, 22 fiktive Personen und 8 Services statt eines einzelnen Dezernats. Keine Änderung an App-Code oder Konfiguration.
 
