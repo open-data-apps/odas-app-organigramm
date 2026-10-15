@@ -3,7 +3,7 @@
   "app-entwickler-name": "ondics-gmbh",
   "name-in-url": "organigramm",
   "name": "Organigramm",
-  "app-version": "1.24.7",
+  "app-version": "1.24.8",
   "app-package-version": "2",
   "odas-app-icon": "assets/odas-app-icon.svg",
   "app-icon": "assets/odas-app-icon.svg",
@@ -55,7 +55,11 @@
   ],
   "screenshots": [
     "assets/Desktop_Screenshot.png",
-    "assets/Desktop_Screenshot_2.png"
+    "assets/Desktop_Screenshot_2.png",
+    "assets/Desktop_Screenshot_3.png",
+    "assets/Mobile_Screenshot.png",
+    "assets/Mobile_Screenshot_2.png",
+    "assets/Mobile_Screenshot_3.png"
   ],
   "branding-css": "",
   "api-version": "1",
