@@ -79,12 +79,314 @@
                     "vorverkaufsrecht"
                   ],
                   "personen-id": [
-                    "schneider",
+                    "hoffmann",
                     "fischer"
                   ],
                   "stellen": []
                 }
               ]
+            },
+            {
+              "titel": "Hauptamt",
+              "beschreibung": [
+                "Aufgaben",
+                "Organisation und Geschäftsprozesse der Stadtverwaltung",
+                "Personalgewinnung und Personalentwicklung",
+                "Digitalisierung und IT-Koordination",
+                "Ausbildung",
+                "Anschrift",
+                "Hausanschrift",
+                "Rathausplatz 3",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 03"
+              ],
+              "kontakt": {
+                "telefon": "01234 567910",
+                "email": "hauptamt@musterstadt.de",
+                "fax": "01234 567919"
+              },
+              "service-id": [],
+              "personen-id": [
+                "brandt",
+                "vogel"
+              ],
+              "stellen": []
+            }
+          ]
+        },
+        {
+          "titel": "Dezernat 2 - Finanzen und Ordnung",
+          "beschreibung": [
+            "Haushalt und Finanzen, Steuern, öffentliche Sicherheit und Ordnung, Bürgerservice",
+            "Anschrift",
+            "Hausanschrift",
+            "Rathausplatz 1",
+            "12345 Musterstadt",
+            "Postfach",
+            "12345 Musterstadt",
+            "Postfach: 10 00 01"
+          ],
+          "kontakt": {
+            "telefon": "01234 567920",
+            "email": "dezernat.finanzen-ordnung@musterstadt.de",
+            "fax": "01234 567929"
+          },
+          "service-id": [],
+          "personen-id": [
+            "winkler",
+            "lang"
+          ],
+          "stellen": [
+            {
+              "titel": "Kämmerei und Steueramt",
+              "beschreibung": [
+                "Aufgaben",
+                "Aufstellung und Überwachung des Haushaltsplans",
+                "Steuern und Abgaben",
+                "Stadtkasse und Vollstreckung",
+                "Anschrift",
+                "Hausanschrift",
+                "Beispielstraße 14",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 04"
+              ],
+              "kontakt": {
+                "telefon": "01234 567921",
+                "email": "kaemmerei@musterstadt.de",
+                "fax": "01234 567928"
+              },
+              "service-id": [],
+              "personen-id": [
+                "lang",
+                "krause"
+              ],
+              "stellen": []
+            },
+            {
+              "titel": "Ordnungsamt",
+              "beschreibung": [
+                "Aufgaben",
+                "Öffentliche Sicherheit und Ordnung",
+                "Gewerbe- und Gaststättenangelegenheiten",
+                "Bürgerservice mit Melde- und Passwesen",
+                "Verkehrsüberwachung",
+                "Anschrift",
+                "Hausanschrift",
+                "Altes Rathaus, Marktplatz 5",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 05"
+              ],
+              "kontakt": {
+                "telefon": "01234 567930",
+                "email": "ordnungsamt@musterstadt.de",
+                "fax": "01234 567939"
+              },
+              "service-id": [
+                "personalausweis",
+                "gewerbeanmeldung",
+                "sondernutzung"
+              ],
+              "personen-id": [
+                "herrmann",
+                "peters"
+              ],
+              "stellen": []
+            }
+          ]
+        },
+        {
+          "titel": "Dezernat 3 - Bildung, Soziales und Kultur",
+          "beschreibung": [
+            "Schulen und Kindertagesbetreuung, soziale Dienste, Jugend, Kultur, Sport",
+            "Anschrift",
+            "Hausanschrift",
+            "Rathausplatz 1",
+            "12345 Musterstadt",
+            "Postfach",
+            "12345 Musterstadt",
+            "Postfach: 10 00 01"
+          ],
+          "kontakt": {
+            "telefon": "01234 567940",
+            "email": "dezernat.bildung-soziales-kultur@musterstadt.de",
+            "fax": "01234 567949"
+          },
+          "service-id": [],
+          "personen-id": [
+            "kaiser"
+          ],
+          "stellen": [
+            {
+              "titel": "Amt für Bildung und Schulen",
+              "beschreibung": [
+                "Aufgaben",
+                "Schulträgeraufgaben und Schulentwicklung",
+                "Kindertagesbetreuung und Platzvergabe",
+                "Schülerbeförderung",
+                "Anschrift",
+                "Hausanschrift",
+                "Schulstraße 8",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 06"
+              ],
+              "kontakt": {
+                "telefon": "01234 567941",
+                "email": "bildung@musterstadt.de",
+                "fax": "01234 567948"
+              },
+              "service-id": [
+                "kita-anmeldung"
+              ],
+              "personen-id": [
+                "schaefer",
+                "jung"
+              ],
+              "stellen": []
+            },
+            {
+              "titel": "Sozialamt",
+              "beschreibung": [
+                "Aufgaben",
+                "Sozialberatung und Hilfen zum Lebensunterhalt",
+                "Wohngeld",
+                "Jugend- und Familienhilfe",
+                "Unterstützung für Menschen mit Behinderung",
+                "Anschrift",
+                "Hausanschrift",
+                "Beispielweg 6",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 07"
+              ],
+              "kontakt": {
+                "telefon": "01234 567950",
+                "email": "sozialamt@musterstadt.de",
+                "fax": "01234 567959"
+              },
+              "service-id": [
+                "wohngeld"
+              ],
+              "personen-id": [
+                "bergmann",
+                "jung"
+              ],
+              "stellen": []
+            },
+            {
+              "titel": "Kulturamt",
+              "beschreibung": [
+                "Aufgaben",
+                "Kulturförderung und Veranstaltungen",
+                "Stadtbibliothek und Stadtarchiv",
+                "Städtische Museen",
+                "Anschrift",
+                "Hausanschrift",
+                "Kulturweg 2",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 08"
+              ],
+              "kontakt": {
+                "telefon": "01234 567960",
+                "email": "kulturamt@musterstadt.de",
+                "fax": ""
+              },
+              "service-id": [],
+              "personen-id": [
+                "roth"
+              ],
+              "stellen": []
+            }
+          ]
+        },
+        {
+          "titel": "Dezernat 4 - Bauen, Umwelt und Mobilität",
+          "beschreibung": [
+            "Stadtplanung, Bauen, Tiefbau, Verkehr, Umwelt und Klimaschutz",
+            "Anschrift",
+            "Hausanschrift",
+            "Rathausplatz 1",
+            "12345 Musterstadt",
+            "Postfach",
+            "12345 Musterstadt",
+            "Postfach: 10 00 01"
+          ],
+          "kontakt": {
+            "telefon": "01234 567970",
+            "email": "dezernat.bauen-umwelt-mobilitaet@musterstadt.de",
+            "fax": "01234 567979"
+          },
+          "service-id": [],
+          "personen-id": [
+            "lehmann"
+          ],
+          "stellen": [
+            {
+              "titel": "Stadtplanungsamt",
+              "beschreibung": [
+                "Aufgaben",
+                "Flächennutzungs- und Bebauungspläne",
+                "Baugenehmigungen",
+                "Stadtentwicklung und Bürgerbeteiligung",
+                "Anschrift",
+                "Hausanschrift",
+                "Beispielallee 12",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 09"
+              ],
+              "kontakt": {
+                "telefon": "01234 567971",
+                "email": "stadtplanung@musterstadt.de",
+                "fax": "01234 567978"
+              },
+              "service-id": [
+                "baugenehmigung"
+              ],
+              "personen-id": [
+                "neumann"
+              ],
+              "stellen": []
+            },
+            {
+              "titel": "Tiefbauamt",
+              "beschreibung": [
+                "Aufgaben",
+                "Bau und Unterhalt von Straßen, Wegen und Brücken",
+                "Verkehrsplanung und Radverkehr",
+                "Entwässerung",
+                "Anschrift",
+                "Hausanschrift",
+                "Industrieweg 3",
+                "12345 Musterstadt",
+                "Postfach",
+                "12345 Musterstadt",
+                "Postfach: 10 00 10"
+              ],
+              "kontakt": {
+                "telefon": "01234 567980",
+                "email": "tiefbauamt@musterstadt.de",
+                "fax": "01234 567989"
+              },
+              "service-id": [
+                "sondernutzung"
+              ],
+              "personen-id": [
+                "zimmermann",
+                "braun"
+              ],
+              "stellen": []
             }
           ]
         }
@@ -103,6 +405,42 @@
       "titel": "Vorkaufsrecht der Gemeinde - Negativzeugnis beantragen",
       "beschreibung": "Bei Übertragungen von Grundstücken hat die Gemeinde in bestimmten Fällen ein Vorkaufsrecht.",
       "url": "https://service.musterstadt.de/vorverkaufsrecht"
+    },
+    {
+      "id": "personalausweis",
+      "titel": "Personalausweis beantragen",
+      "beschreibung": "Ein neuer Personalausweis kann nach vorheriger Terminvereinbarung im Bürgerservice beantragt werden.",
+      "url": "https://service.musterstadt.de/personalausweis"
+    },
+    {
+      "id": "gewerbeanmeldung",
+      "titel": "Gewerbe anmelden",
+      "beschreibung": "Wer ein Gewerbe beginnt, muss dies beim Ordnungsamt anzeigen. Die Anmeldung ist auch online möglich.",
+      "url": "https://service.musterstadt.de/gewerbeanmeldung"
+    },
+    {
+      "id": "kita-anmeldung",
+      "titel": "Kita-Platz anmelden",
+      "beschreibung": "Anmeldung für einen Betreuungsplatz in städtischen und freien Kindertageseinrichtungen.",
+      "url": "https://service.musterstadt.de/kita-anmeldung"
+    },
+    {
+      "id": "wohngeld",
+      "titel": "Wohngeld beantragen",
+      "beschreibung": "Wohngeld unterstützt Haushalte mit geringem Einkommen bei den Wohnkosten.",
+      "url": "https://service.musterstadt.de/wohngeld"
+    },
+    {
+      "id": "baugenehmigung",
+      "titel": "Baugenehmigung beantragen",
+      "beschreibung": "Bauvorhaben benötigen in der Regel eine Baugenehmigung, die beim Stadtplanungsamt beantragt wird.",
+      "url": "https://service.musterstadt.de/baugenehmigung"
+    },
+    {
+      "id": "sondernutzung",
+      "titel": "Sondernutzung öffentlicher Straßen beantragen",
+      "beschreibung": "Für Baustellen, Märkte oder Veranstaltungen im öffentlichen Raum ist eine Erlaubnis erforderlich.",
+      "url": "https://service.musterstadt.de/sondernutzung"
     }
   ],
   "personen": [
@@ -112,20 +450,6 @@
       "beschreibung": "Oberbürgermeister, Raum 101, Neues Rathaus",
       "telefon": "01234 567890",
       "email": "max.mueller@musterstadt.de"
-    },
-    {
-      "id": "schneider",
-      "name": "Anna Schneider",
-      "beschreibung": "Abteilungsleitung",
-      "telefon": "01234 567894",
-      "email": ""
-    },
-    {
-      "id": "fischer",
-      "name": "Peter Fischer",
-      "beschreibung": "Assistenz der Abteilungsleitung und für den Grundstücksverkehr",
-      "telefon": "01234 567893",
-      "email": ""
     },
     {
       "id": "schmidt",
@@ -140,6 +464,139 @@
       "beschreibung": "Sekretariat, Raum 103, Neues Rathaus",
       "telefon": "01234 567896",
       "email": "julia.meier@musterstadt.de"
+    },
+    {
+      "id": "schneider",
+      "name": "Anna Schneider",
+      "beschreibung": "Amtsleitung Rechts- und Grundstücksangelegenheiten",
+      "telefon": "01234 567894",
+      "email": "anna.schneider@musterstadt.de"
+    },
+    {
+      "id": "fischer",
+      "name": "Peter Fischer",
+      "beschreibung": "Assistenz der Amtsleitung und für den Grundstücksverkehr",
+      "telefon": "01234 567893",
+      "email": ""
+    },
+    {
+      "id": "hoffmann",
+      "name": "Karin Hoffmann",
+      "beschreibung": "Leitung der Abteilung Liegenschaften",
+      "telefon": "01234 567897",
+      "email": "karin.hoffmann@musterstadt.de"
+    },
+    {
+      "id": "brandt",
+      "name": "Stefan Brandt",
+      "beschreibung": "Amtsleitung Hauptamt, Organisation und Digitalisierung",
+      "telefon": "01234 567911",
+      "email": "stefan.brandt@musterstadt.de"
+    },
+    {
+      "id": "vogel",
+      "name": "Miriam Vogel",
+      "beschreibung": "Personalentwicklung und Ausbildung",
+      "telefon": "01234 567912",
+      "email": "miriam.vogel@musterstadt.de"
+    },
+    {
+      "id": "winkler",
+      "name": "Dr. Thomas Winkler",
+      "beschreibung": "Erster Bürgermeister, Dezernent für Finanzen und Ordnung, Raum 201, Neues Rathaus",
+      "telefon": "01234 567920",
+      "email": "thomas.winkler@musterstadt.de"
+    },
+    {
+      "id": "lang",
+      "name": "Sabine Lang",
+      "beschreibung": "Leitung der Kämmerei und des Steueramts",
+      "telefon": "01234 567921",
+      "email": "sabine.lang@musterstadt.de"
+    },
+    {
+      "id": "krause",
+      "name": "Jens Krause",
+      "beschreibung": "Sachgebiet Haushalt und Controlling",
+      "telefon": "01234 567922",
+      "email": "jens.krause@musterstadt.de"
+    },
+    {
+      "id": "herrmann",
+      "name": "Ursula Herrmann",
+      "beschreibung": "Amtsleitung Ordnungsamt",
+      "telefon": "01234 567930",
+      "email": "ursula.herrmann@musterstadt.de"
+    },
+    {
+      "id": "peters",
+      "name": "Daniel Peters",
+      "beschreibung": "Leitung Bürgerservice, Raum 004, Altes Rathaus",
+      "telefon": "01234 567931",
+      "email": "daniel.peters@musterstadt.de"
+    },
+    {
+      "id": "kaiser",
+      "name": "Dr. Helga Kaiser",
+      "beschreibung": "Bürgermeisterin, Dezernentin für Bildung, Soziales und Kultur, Raum 301, Neues Rathaus",
+      "telefon": "01234 567940",
+      "email": "helga.kaiser@musterstadt.de"
+    },
+    {
+      "id": "schaefer",
+      "name": "Oliver Schäfer",
+      "beschreibung": "Amtsleitung Amt für Bildung und Schulen",
+      "telefon": "01234 567941",
+      "email": "oliver.schaefer@musterstadt.de"
+    },
+    {
+      "id": "bergmann",
+      "name": "Nadine Bergmann",
+      "beschreibung": "Amtsleitung Sozialamt",
+      "telefon": "01234 567950",
+      "email": "nadine.bergmann@musterstadt.de"
+    },
+    {
+      "id": "jung",
+      "name": "Tobias Jung",
+      "beschreibung": "Sachgebiet Jugend und Familie",
+      "telefon": "01234 567951",
+      "email": ""
+    },
+    {
+      "id": "roth",
+      "name": "Elisabeth Roth",
+      "beschreibung": "Amtsleitung Kulturamt",
+      "telefon": "01234 567960",
+      "email": "elisabeth.roth@musterstadt.de"
+    },
+    {
+      "id": "lehmann",
+      "name": "Dr. Markus Lehmann",
+      "beschreibung": "Baubürgermeister, Dezernent für Bauen, Umwelt und Mobilität, Raum 401, Neues Rathaus",
+      "telefon": "01234 567970",
+      "email": "markus.lehmann@musterstadt.de"
+    },
+    {
+      "id": "neumann",
+      "name": "Christine Neumann",
+      "beschreibung": "Amtsleitung Stadtplanungsamt",
+      "telefon": "01234 567971",
+      "email": "christine.neumann@musterstadt.de"
+    },
+    {
+      "id": "zimmermann",
+      "name": "Frank Zimmermann",
+      "beschreibung": "Amtsleitung Tiefbauamt",
+      "telefon": "01234 567980",
+      "email": "frank.zimmermann@musterstadt.de"
+    },
+    {
+      "id": "braun",
+      "name": "Sandra Braun",
+      "beschreibung": "Leitung Verkehrsplanung und Radverkehr",
+      "telefon": "01234 567981",
+      "email": "sandra.braun@musterstadt.de"
     }
   ]
 }

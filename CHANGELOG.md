@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.24.9 - 2026-10-15
+- FIX: Beispieldatensatz `assets/organigramm_musterstadt.json` ausgebaut: 4 Dezernate, 10 Ämter und Stellen, 22 fiktive Personen und 8 Services statt eines einzelnen Dezernats. Keine Änderung an App-Code oder Konfiguration.
+
 ## 1.24.8 - 2026-10-15
 - DOCS: Neue Store-Screenshots: je drei Desktop- (1440 × 1000) und Mobile-Aufnahmen (390 × 844) der aktuellen App, aufgenommen auf der Dev-Instanz. Bisherige Bilder nach `docs/screenshots/archive/2026-10-13/` verschoben. Keine Änderung an App-Code oder Konfiguration.
 
