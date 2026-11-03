@@ -2,6 +2,7 @@
 
 ## 1.24.11 - 2026-11-03
 - DOCS: MIT-Lizenz ergänzt: `LICENSE` liegt im Repository und im Lieferpaket (`make zip`), das README hat einen Abschnitt „Lizenz“. Keine Änderung an App-Code oder Konfiguration.
+- DOCS: Alte Store-Screenshots unter `docs/screenshots/archive/2026-10-13/` entfernt; sie bleiben über den Git-Tag `archive/screenshots-2026-10-13` abrufbar.
 
 ## 1.24.10 - 2026-10-15
 - FIX: Kopfzeile bei 360 px ohne Überlauf (Template): Logo- und Burger-Spalte passen sich der Breite an, das Menü-Symbol ragt nicht mehr über den rechten Rand. Keine Änderung an App-Code oder Konfiguration.
